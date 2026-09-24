@@ -26,9 +26,9 @@
   <ul>
     <li><a href="index.html">Home</a></li>
     <li><a href="part-a.html" aria-current="page">A. Preliminaries</a></li>
-    <li><span class="soon">B. Global Production <small>(soon)</small></span></li>
-    <li><span class="soon">C. Production Details <small>(soon)</small></span></li>
-    <li><span class="soon">D. Policies &amp; Firms <small>(soon)</small></span></li>
+    <li><a href="part-b.html">B. Global Production</a></li>
+    <li><a href="part-c.html">C. Production Details</a></li>
+    <li><a href="part-d.html">D. Policies &amp; Firms</a></li>
   </ul>
 </nav>
 
@@ -109,13 +109,38 @@
     <p>Whole soybeans are not listed as a food in the ERS system, because almost all of them are crushed into meal and oil (see the diagram above). The way most Americans "eat" soybeans is as <strong>soybean oil</strong>. ERS used to report soybean oil under added fats and oils, but that series stopped after 2010, when the Census Bureau stopped the survey it was based on (<a href="https://www.ers.usda.gov/data-products/food-availability-per-capita-data-system/food-availability-documentation">ERS documentation</a>). To cover 1992–2022, I used the same formula with the supply-and-use tables in the ERS <a href="https://www.ers.usda.gov/data-products/oil-crops-yearbook">Oil Crops Yearbook</a>.</p>
 
     <figure>
-      <p class="chart-title">U.S. soybean oil available for food, pounds per person, 1992–2022</p>
-      <div class="photo-slot" style="aspect-ratio: 16 / 7;">
-        <span><strong>Chart in progress.</strong><br>Data: USDA-ERS Oil Crops Yearbook (soybean oil supply and use) ÷ U.S. population.</span>
-      </div>
-      <figcaption>Source: USDA-ERS <a href="https://www.ers.usda.gov/data-products/oil-crops-yearbook">Oil Crops Yearbook</a>; population from the U.S. Census Bureau.</figcaption>
+      <p class="chart-title">U.S. soybean oil per person, 1992–2022</p>
+      <div class="chart-box"><canvas id="chart-availability" aria-label="Line chart of U.S. soybean oil available per person for food and for biofuel, 1992 to 2022" role="img"></canvas></div>
+      <figcaption>Source: USDA-ERS <a href="https://www.ers.usda.gov/data-products/oil-crops-yearbook">Oil Crops Yearbook</a>, Table 5 (soybean oil supply and disappearance), divided by U.S. population from the <a href="https://www.census.gov/programs-surveys/popest.html">U.S. Census Bureau</a>. Years are marketing years (1992 = Oct. 1992–Sept. 1993). "Food and other uses" = total domestic use minus biofuel use.
+        <details class="data-table">
+          <summary>Show the data table</summary>
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th>Year</th><th class="num">Food &amp; other uses (lb/person)</th><th class="num">Biofuel (lb/person)</th></tr></thead>
+              <tbody id="availability-rows"></tbody>
+            </table>
+          </div>
+        </details>
+      </figcaption>
     </figure>
-    <!-- TODO: add the per-person chart and a 3–4 sentence description of the trend once the Oil Crops Yearbook data is downloaded. -->
+
+    <div class="stats">
+      <div class="stat"><span class="big">50.7 lb</span><span class="small">per person in 1992</span></div>
+      <div class="stat"><span class="big">59.0 lb</span><span class="small">peak, in 2002</span></div>
+      <div class="stat"><span class="big">42.3 lb</span><span class="small">per person in 2022</span></div>
+      <div class="stat"><span class="big">37.5 lb</span><span class="small">per person went to biofuel in 2022</span></div>
+    </div>
+
+    <h3>What the graph shows</h3>
+    <p>The green line is the soybean oil available to each American for food and other uses. It went <strong>up</strong> in the 1990s, from about <strong>50.7 pounds per person in 1992</strong> to a peak of <span class="hl">59.0 pounds in 2002</span>. After that it went <strong>down</strong> for about ten years and has stayed flat at around <strong>42–45 pounds</strong> since 2010, ending at <strong>42.3 pounds in 2022</strong>. That is still a lot. It is close to a pound of soybean oil per person every week.</p>
+    <p>The gold line shows where the "missing" soybean oil went. Almost none was used for fuel before 2004, but by 2022 the U.S. was using <span class="hl">37.5 pounds per person</span> of soybean oil to make biodiesel and renewable diesel. In 2022, almost half of all soybean oil used in the U.S. went into fuel tanks instead of food.</p>
+
+    <h3>Why the lines moved</h3>
+    <ul>
+      <li><strong>The drop after 2002 (trans fats):</strong> much of the soybean oil in processed food was "partially hydrogenated," which creates trans fats. The FDA required trans fat on nutrition labels starting in 2006, and later ruled that partially hydrogenated oils are no longer "generally recognized as safe" (<a href="https://www.fda.gov/food/food-additives-petitions/trans-fat">FDA – Trans Fat</a>). Food companies switched some of their recipes to other oils like canola and palm oil, so less soybean oil went into food.</li>
+      <li><strong>The rise of biofuel:</strong> federal rules require fuel companies to blend biofuels into gasoline and diesel (<a href="https://www.epa.gov/renewable-fuel-standard-program">EPA Renewable Fuel Standard</a>), and soybean oil is one of the main things biodiesel is made from. Every year since 2013, more than 15 pounds per person went to fuel.</li>
+    </ul>
+    <p>My takeaway: Americans are not eating less soybean oil because soybeans are disappearing. U.S. soybean oil production nearly doubled over these 30 years. It is because the <em>use</em> of the oil changed from mostly food to food <em>plus</em> fuel.</p>
   </section>
 
   <!-- ===================== Q2 ===================== -->
@@ -126,14 +151,14 @@
     <div class="stats">
       <div class="stat"><span class="big">2.19 → 4.27</span><span class="small">billion bushels, 1992 → 2022</span></div>
       <div class="stat"><span class="big">+95%</span><span class="small">growth in 30 years</span></div>
-      <div class="stat"><span class="big">4.47</span><span class="small">billion bushels, record year (2021)</span></div>
+      <div class="stat"><span class="big">4.46</span><span class="small">billion bushels, record year (2021)</span></div>
       <div class="stat"><span class="big">≈116</span><span class="small">million metric tons in 2022</span></div>
     </div>
 
     <figure>
       <p class="chart-title">U.S. Soybean Production, 1992–2022</p>
       <div class="chart-box"><canvas id="chart-production" aria-label="Line chart of U.S. soybean production from 1992 to 2022" role="img"></canvas></div>
-      <figcaption>Source: USDA National Agricultural Statistics Service, <a href="https://www.nass.usda.gov/Charts_and_Maps/Field_Crops/soyprod.php">Soybeans: Production by Year, US</a> (also in <a href="https://quickstats.nass.usda.gov/">NASS Quick Stats</a>). The same series in metric tons is in the UN's <a href="https://www.fao.org/faostat/en/#data/QCL">FAOSTAT</a> production database. One bushel of soybeans = 60 lb = 27.2 kg.
+      <figcaption>Source: USDA-ERS <a href="https://www.ers.usda.gov/data-products/oil-crops-yearbook">Oil Crops Yearbook</a>, Table 2, which uses USDA National Agricultural Statistics Service estimates (<a href="https://www.nass.usda.gov/Charts_and_Maps/Field_Crops/soyprod.php">NASS production chart</a>). The same series in metric tons is in the UN's <a href="https://www.fao.org/faostat/en/#data/QCL">FAOSTAT</a> production database. One bushel of soybeans = 60 lb = 27.2 kg.
         <details class="data-table">
           <summary>Show the data table</summary>
           <div class="table-scroll">
@@ -152,7 +177,7 @@
       <li><strong>1993 (1.87 billion):</strong> the lowest point on the graph, the year of the Great Midwest Flood.</li>
       <li><strong>2003 and 2012 (2.45 and 3.04 billion):</strong> dry, hot summers cut yields. 2012 was a major drought year across the Corn Belt.</li>
       <li><strong>2019 (3.55 billion):</strong> a very wet spring delayed planting, and farmers planted fewer soybeans during the trade war with China, which had been the biggest buyer of U.S. soybeans (<a href="https://abcnews.com/Politics/soybean-farmers-caught-looming-crisis-us-trade-war/story?id=125943171">ABC News</a>).</li>
-      <li><strong>2021 (4.47 billion):</strong> the record year in this period.</li>
+      <li><strong>2021 (4.46 billion):</strong> the record year in this period.</li>
     </ul>
 
     <h3>Why production went up</h3>
@@ -166,7 +191,7 @@
 
     <p>You will almost never find plain dry soybeans in a regular grocery store, so I looked for soybeans in the forms people actually buy: frozen <strong>edamame</strong> (green soybeans), <strong>tofu</strong>, <strong>soy milk</strong>, and <strong>vegetable oil</strong> (which is usually 100% soybean oil). Under USDA's <a href="https://www.ams.usda.gov/rules-regulations/cool">Country of Origin Labeling (COOL)</a> rules, fresh and frozen vegetables must show where they were grown, so the frozen edamame bag is the key label. Processed products like tofu, soy milk, and oil do not have to follow COOL (<a href="https://www.ams.usda.gov/rules-regulations/cool/questions-answers-consumers">USDA-AMS FAQ</a>), but many brands still print where they are made.</p>
 
-    <p><span class="todo">In [MONTH YEAR], I visited [STORE NAME] in [TOWN, STATE] and took photos of four soy products.</span></p>
+    <p>I visited the <strong>Walmart in State College, PA</strong> <span class="todo">in [MONTH YEAR]</span> and took photos of the soy products I could find, including soy milk.</p>
 
     <div class="photo-grid">
       <figure>

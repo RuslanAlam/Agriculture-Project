@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>B. Global Production | Soy Story</title>
+  <meta name="description" content="Part B of my AG BM 170 crop report on soybeans: where soybeans are grown around the world and why, plus U.S. imports and exports.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <div class="site-title">
+      <h1><a href="index.html">Soy Story</a></h1>
+      <p>A crop report on soybeans for AG BM 170: Exploring the U.S. Food System</p>
+    </div>
+  </div>
+</header>
+
+<nav class="site-nav" aria-label="Main">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="part-a.html">A. Preliminaries</a></li>
+    <li><a href="part-b.html" aria-current="page">B. Global Production</a></li>
+    <li><a href="part-c.html">C. Production Details</a></li>
+    <li><a href="part-d.html">D. Policies &amp; Firms</a></li>
+  </ul>
+</nav>
+
+<div class="layout">
+<main>
+
+  <h1>Global and National Production – Part B</h1>
+  <p class="byline">By Ruslan Alam · AG BM 170</p>
+  <p class="crop-choice">Where are soybeans grown around the world, and why?</p>
+
+  <p>Soybeans are the biggest oilseed crop in the world. In 2024/25 they made up about <span class="hl">62% of all oilseeds grown</span>, more than rapeseed (canola), sunflower seed, peanuts, and cottonseed put together (<a href="https://www.ers.usda.gov/data-products/oil-crops-yearbook">USDA-ERS Oil Crops Yearbook</a>, Table 41). This page looks at who grows them, where U.S. soybeans are grown, and how much the U.S. trades.</p>
+
+  <!-- ===================== B1 ===================== -->
+  <section class="question" id="b1">
+    <h2>1. Global production: then and now</h2>
+    <p class="prompt">Bar charts of global production for a recent year and an earlier year.</p>
+
+    <figure>
+      <p class="chart-title">World soybean production by region, 2010/11 vs. 2024/25</p>
+      <div class="chart-box"><canvas id="chart-world" aria-label="Stacked bar chart of world soybean production by region in 2010/11 and 2024/25" role="img"></canvas></div>
+      <figcaption>Source: USDA-ERS <a href="https://www.ers.usda.gov/data-products/oil-crops-yearbook">Oil Crops Yearbook</a> (2012 edition Table 45 for 2010/11; 2025 edition Table 37 for 2024/25), based on USDA's World Agricultural Supply and Demand Estimates. Hover over a bar for each region's share.</figcaption>
+    </figure>
+
+    <div class="table-scroll">
+    <table>
+      <thead><tr><th>Region</th><th class="num">2010/11 (MMT)</th><th class="num">Share</th><th class="num">2024/25 (MMT)</th><th class="num">Share</th><th class="num">Change</th></tr></thead>
+      <tbody>
+        <tr><td>Brazil, Argentina, Paraguay &amp; Uruguay</td><td class="num">132.9</td><td class="num">50%</td><td class="num">237.0</td><td class="num">55%</td><td class="num">+78%</td></tr>
+        <tr><td>United States</td><td class="num">90.6</td><td class="num">34%</td><td class="num">119.0</td><td class="num">28%</td><td class="num">+31%</td></tr>
+        <tr><td>China, EU, Japan, Mexico &amp; Southeast Asia</td><td class="num">17.4</td><td class="num">7%</td><td class="num">24.7</td><td class="num">6%</td><td class="num">+42%</td></tr>
+        <tr><td>Rest of world</td><td class="num">23.4</td><td class="num">9%</td><td class="num">46.5</td><td class="num">11%</td><td class="num">+99%</td></tr>
+        <tr><th>World</th><th class="num">264.3</th><th class="num">100%</th><th class="num">427.2</th><th class="num">100%</th><th class="num">+62%</th></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="cite">MMT = million metric tons. Same source as the chart.</p>
+
+    <h3>What the charts show</h3>
+    <p>World soybean production grew by <span class="hl">62% in 14 years</span>, from 264 to 427 million metric tons. Almost all of that growth came from <strong>South America</strong>. Brazil, Argentina, Paraguay, and Uruguay went from growing half of the world's soybeans to <strong>55%</strong>. The U.S. also grew (+31%), but more slowly, so its share of the world crop fell from about one-third to <strong>28%</strong>. Brazil passed the U.S. as the world's #1 soybean grower in 2019/20 (<a href="https://link.springer.com/article/10.1007/s42106-026-00434-x"><em>International Journal of Plant Production</em></a>).</p>
+
+    <h3>Why South America?</h3>
+    <ul>
+      <li><strong>New seeds for the tropics.</strong> Brazil's government research agency, Embrapa, bred a "tropical soybean" that grows well in hot weather and acidic soil. That opened up the huge Cerrado savanna in central Brazil to farming (<a href="https://www.ocl-journal.org/articles/ocl/full_html/2018/01/ocl170039/ocl170039.html"><em>OCL</em> journal</a>).</li>
+      <li><strong>Lots of land.</strong> The state of Mato Grosso went from 2% of Brazil's soybeans in 1970 to over a quarter today (<a href="https://www.ocl-journal.org/articles/ocl/full_html/2018/01/ocl170039/ocl170039.html"><em>OCL</em> journal</a>). Some of this land came from clearing forest and savanna, which is the deforestation concern from Part A.</li>
+      <li><strong>China's demand.</strong> China, where soybeans started, is now the world's biggest <em>importer</em> (<a href="https://www.nationalgeographic.com/environment/article/soybeans-took-over-world-food-agriculture">National Geographic</a>). It needs soybean meal to feed its pigs and chickens, and Brazil is its main supplier.</li>
+    </ul>
+
+    <figure>
+      <p class="chart-title">Top 10 soybean-producing countries (FAOSTAT)</p>
+      <div class="photo-slot" style="aspect-ratio: 16 / 6;">
+        <span><strong>Country-by-country charts in progress.</strong><br>Data: FAOSTAT crop production, soybeans, all countries, 2010 and latest year.</span>
+      </div>
+      <figcaption>Source: UN Food and Agriculture Organization, <a href="https://www.fao.org/faostat/en/#data/QCL">FAOSTAT</a>.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ===================== B2 ===================== -->
+  <section class="question" id="b2">
+    <h2>2. Top soybean states in the U.S.</h2>
+    <p class="prompt">Bar charts of the top ten producing states.</p>
+    <p>U.S. soybeans are grown mostly in the Corn Belt and the Upper Midwest, usually in rotation with corn. Illinois was the top soybean state in 2022, followed by Iowa (<a href="https://www.morningagclips.com/illinois-top-soybean-producer-for-2022/">Morning Ag Clips, using USDA-NASS data</a>). Soybeans fit these states well: deep, rich soils, enough summer rain, and a short trip to river barges and crushing plants.</p>
+    <figure>
+      <p class="chart-title">Top 10 soybean-producing states</p>
+      <div class="photo-slot" style="aspect-ratio: 16 / 6;">
+        <span><strong>State charts in progress.</strong><br>Data: USDA-NASS Quick Stats, soybeans, production by state.</span>
+      </div>
+      <figcaption>Source: USDA National Agricultural Statistics Service, <a href="https://quickstats.nass.usda.gov/">Quick Stats</a> and <a href="https://www.nass.usda.gov/Charts_and_Maps/Crops_County/sb-pr.php">soybean production by county map</a>.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ===================== B3 ===================== -->
+  <section class="question" id="b3">
+    <h2>3. How much do we import and export?</h2>
+
+    <div class="stats">
+      <div class="stat"><span class="big">46%</span><span class="small">of the 2022 U.S. crop was exported as whole beans</span></div>
+      <div class="stat"><span class="big">2.6×</span><span class="small">more exports in 2022 than in 1992</span></div>
+      <div class="stat"><span class="big">0.6%</span><span class="small">imports compared to U.S. production (2022)</span></div>
+    </div>
+
+    <figure>
+      <p class="chart-title">U.S. soybean exports and imports, 1992–2022</p>
+      <div class="chart-box"><canvas id="chart-trade" aria-label="Line chart of U.S. soybean exports and imports, 1992 to 2022" role="img"></canvas></div>
+      <figcaption>Source: USDA-ERS <a href="https://www.ers.usda.gov/data-products/oil-crops-yearbook">Oil Crops Yearbook</a>, Table 3 (soybean supply, disappearance, and price). Marketing years, September–August.
+        <details class="data-table">
+          <summary>Show the data table</summary>
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th>Year</th><th class="num">Exports (million bu)</th><th class="num">Imports (million bu)</th></tr></thead>
+              <tbody id="trade-rows"></tbody>
+            </table>
+          </div>
+        </details>
+      </figcaption>
+    </figure>
+
+    <p>The U.S. is a huge soybean <strong>exporter</strong> and a very small importer. Exports grew from <strong>771 million bushels in 1992</strong> to <strong>1.98 billion in 2022</strong>, with a record of <span class="hl">2.27 billion bushels in 2020</span>. Today almost half of every U.S. soybean crop is shipped overseas as whole beans, up from about a third in 1992. The dip in 2018 and 2019 is the trade war with China (see <a href="part-d.html#d3">Part D</a>).</p>
+    <p>Imports are tiny: only <strong>24.5 million bushels in 2022</strong>, less than 1% of what the U.S. grows. The one jump, to 71.8 million bushels in 2013, came right after the 2012 drought cut the U.S. crop.</p>
+  </section>
+
+  <!-- ===================== B4 ===================== -->
+  <section class="question" id="b4">
+    <h2>4. Where do U.S. soybean imports come from?</h2>
+    <p>Because U.S. imports are so small, USDA's yearbook does not break them down by country. A study of all soy imports into the U.S. (whole beans, meal, and other soy products) found that the top three suppliers in 2019 were:</p>
+    <div class="table-scroll">
+    <table>
+      <thead><tr><th>Country</th><th class="num">Soy imports into the U.S., 2019 (metric tons)</th><th>What it mostly is</th></tr></thead>
+      <tbody>
+        <tr><td>Canada</td><td class="num">546,467</td><td>Soybeans and soy products</td></tr>
+        <tr><td>India</td><td class="num">397,858</td><td>Mostly certified organic soybean meal</td></tr>
+        <tr><td>Argentina</td><td class="num">122,116</td><td>Soy products</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="cite">Source: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9290452/">"Assessment of soy-based imports into the United States," peer-reviewed study (PubMed Central)</a>.</p>
+    <p>My takeaway: the U.S. mainly imports soybeans it <em>can't</em> easily grow enough of, like <strong>organic</strong> soybeans. Organic soybeans are less than 1% of U.S. soybean acres, so food companies bring them in from Canada, India, and other countries (<a href="https://www.ers.usda.gov/data-products/charts-of-note/chart-detail?chartId=101938">USDA-ERS</a>).</p>
+  </section>
+
+  <!-- ===================== B5 ===================== -->
+  <section class="question" id="b5">
+    <h2>5. Where do U.S. soybean exports go?</h2>
+
+    <div class="photo-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+      <figure>
+        <p class="chart-title">2015/16 (52.9 MMT)</p>
+        <div class="chart-box" style="height: 330px;"><canvas id="chart-dest-2015" aria-label="Doughnut chart of U.S. soybean export destinations in 2015/16" role="img"></canvas></div>
+      </figure>
+      <figure>
+        <p class="chart-title">2024/25 (51.2 MMT)</p>
+        <div class="chart-box" style="height: 330px;"><canvas id="chart-dest-2024" aria-label="Doughnut chart of U.S. soybean export destinations in 2024/25" role="img"></canvas></div>
+      </figure>
+    </div>
+    <p class="cite">Source: USDA-ERS <a href="https://www.ers.usda.gov/data-products/oil-crops-yearbook">Oil Crops Yearbook</a>, Table 38 (U.S. soybean exports by selected destinations), thousand metric tons.</p>
+
+    <div class="table-scroll">
+    <table>
+      <thead><tr><th>Destination</th><th class="num">Share, 2015/16</th><th class="num">Share, 2024/25</th></tr></thead>
+      <tbody>
+        <tr><td>China</td><td class="num">57.8%</td><td class="num">44.2%</td></tr>
+        <tr><td>Mexico</td><td class="num">6.8%</td><td class="num">10.2%</td></tr>
+        <tr><td>Egypt</td><td class="num">0.5%</td><td class="num">6.5%</td></tr>
+        <tr><td>Germany</td><td class="num">4.4%</td><td class="num">4.8%</td></tr>
+        <tr><td>Japan</td><td class="num">4.3%</td><td class="num">4.2%</td></tr>
+        <tr><td>Indonesia</td><td class="num">4.3%</td><td class="num">4.2%</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <p><strong>China</strong> is still the #1 buyer, but it is less important than it used to be. In 2015/16 China bought <span class="hl">58% of U.S. soybean exports</span>. By 2024/25 that was down to 44%. The total amount the U.S. exports stayed about the same (around 51–53 million metric tons), so other buyers filled the gap. <strong>Mexico</strong> grew to 10%, and <strong>Egypt</strong> jumped from almost nothing to 6.5%. This is what the soybean industry calls "diversifying": after the trade wars, U.S. farmers learned that depending on one buyer is risky.</p>
+  </section>
+
+</main>
+
+<aside class="toc" aria-label="On this page">
+  <h2>On this page</h2>
+  <ol>
+    <li><a href="#b1">Global production</a></li>
+    <li><a href="#b2">Top U.S. states</a></li>
+    <li><a href="#b3">Imports &amp; exports</a></li>
+    <li><a href="#b4">Import sources</a></li>
+    <li><a href="#b5">Export destinations</a></li>
+  </ol>
+</aside>
+</div>
+
+<footer class="site-footer">
+  <p>Soy Story · A crop report on soybeans by Ruslan Alam · AG BM 170</p>
+</footer>
+
+<script src="assets/js/vendor/chart.umd.min.js"></script>
+<script src="assets/js/charts.js"></script>
+</body>
+</html>
