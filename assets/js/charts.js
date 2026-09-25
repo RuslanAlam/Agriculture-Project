@@ -82,13 +82,16 @@
   }
 
   /* ---------- Part A, Q2: U.S. production ---------- */
+  // Q2 uses 1994–2024 (assignment range). Table 2, million bushels.
+  const PYEARS = Array.from({ length: 31 }, (_, i) => 1994 + i);
+  const prod94 = production.slice(2).concat([4162, 4374]);
   if ($("chart-production")) {
     new Chart($("chart-production"), {
       type: "line",
       data: {
-        labels: YEARS,
+        labels: PYEARS,
         datasets: [{
-          label: "U.S. soybean production", data: production.map((v) => v / 1000),
+          label: "U.S. soybean production", data: prod94.map((v) => v / 1000),
           borderColor: GREEN, backgroundColor: "rgba(67, 112, 47, 0.12)", fill: true, borderWidth: 3, pointRadius: 3, pointHoverRadius: 6, tension: 0.15,
         }],
       },
@@ -96,11 +99,11 @@
         y: { max: 5 },
         plugins: {
           legend: { display: false },
-          tooltip: { callbacks: { label: (c) => ` ${c.parsed.y.toFixed(2)} billion bushels (≈ ${(production[c.dataIndex] * 27.2155 / 1000).toFixed(1)} million metric tons)` } },
+          tooltip: { callbacks: { label: (c) => ` ${c.parsed.y.toFixed(2)} billion bushels (≈ ${(prod94[c.dataIndex] * 27.2155 / 1000).toFixed(1)} million metric tons)` } },
         },
       }),
     });
-    fillTable("production-rows", YEARS.map((y, i) => [y, production[i].toLocaleString(), (production[i] * 27.2155 / 1000).toFixed(1)]));
+    fillTable("production-rows", PYEARS.map((y, i) => [y, prod94[i].toLocaleString(), (prod94[i] * 27.2155 / 1000).toFixed(1)]));
   }
 
   /* ---------- Part A, Q6: carbon footprint comparison ----------
