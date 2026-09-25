@@ -164,6 +164,33 @@
     });
   }
 
+
+  /* ---------- Part B: top-10 bar charts ----------
+     Countries: FAOSTAT (QCL, soya beans, production), million metric tons.
+     States: USDA-NASS Quick Stats, million acres (2010 planted, 2025 harvested). */
+  const top10 = {
+    "chart-countries-2024": { unit: "million metric tons", decimals: 1, color: GOLD, highlight: "United States", rows: [["Brazil", 144.47], ["United States", 118.84], ["Argentina", 48.21], ["China", 20.66], ["India", 15.13], ["Paraguay", 11.1], ["Canada", 7.57], ["Russia", 7.0], ["Ukraine", 6.64], ["Bolivia", 3.22]] },
+    "chart-countries-2010": { unit: "million metric tons", decimals: 1, color: GOLD, highlight: "United States", rows: [["United States", 90.66], ["Brazil", 68.76], ["Argentina", 52.68], ["China", 15.08], ["India", 12.73], ["Paraguay", 7.46], ["Canada", 4.44], ["Uruguay", 1.79], ["Bolivia", 1.69], ["Ukraine", 1.68]] },
+    "chart-states-2025": { unit: "million acres harvested", decimals: 2, color: GREEN, highlight: "Pennsylvania", rows: [["Illinois", 10.23], ["Iowa", 9.38], ["Minnesota", 7.07], ["North Dakota", 6.49], ["Missouri", 5.53], ["Indiana", 5.43], ["South Dakota", 5.06], ["Ohio", 4.88], ["Nebraska", 4.79], ["Kansas", 4.05], ["Pennsylvania", 0.57]] },
+    "chart-states-2010": { unit: "million acres planted", decimals: 2, color: GREEN, highlight: "Pennsylvania", rows: [["Iowa", 9.8], ["Illinois", 9.1], ["Minnesota", 7.4], ["Indiana", 5.35], ["Missouri", 5.15], ["Nebraska", 5.15], ["Ohio", 4.6], ["Kansas", 4.3], ["South Dakota", 4.2], ["North Dakota", 4.1], ["Pennsylvania", 0.5]] },
+  };
+  Object.entries(top10).forEach(([id, cfg]) => {
+    if (!$(id)) return;
+    new Chart($(id), {
+      type: "bar",
+      data: {
+        labels: cfg.rows.map((r) => r[0]),
+        datasets: [{ data: cfg.rows.map((r) => r[1]), backgroundColor: cfg.rows.map((r) => (r[0] === cfg.highlight ? RUST : cfg.color)), borderRadius: 4, barPercentage: 0.8 }],
+      },
+      options: {
+        indexAxis: "y", maintainAspectRatio: false, layout: { padding: { right: 40 } },
+        plugins: { legend: { display: false }, valueLabels: { decimals: cfg.decimals }, tooltip: { callbacks: { label: (c) => ` ${c.parsed.x} ${cfg.unit}` } } },
+        scales: { x: { beginAtZero: true, title: { display: true, text: cfg.unit[0].toUpperCase() + cfg.unit.slice(1) }, grid: { color: GRID } }, y: { grid: { display: false } } },
+      },
+      plugins: [valueLabels],
+    });
+  });
+
   /* ---------- Part B, Q3: U.S. imports and exports ---------- */
   if ($("chart-trade")) {
     new Chart($("chart-trade"), {

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>B. Global Production | Soy Story</title>
-  <meta name="description" content="Part B of my AG BM 170 crop report on soybeans: where soybeans are grown around the world and why, plus U.S. imports and exports.">
+  <meta name="description" content="Part B of my AGBM 170 crop report on soybeans: where soybeans are grown around the world and why, plus U.S. imports and exports.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
   <div class="inner">
     <div class="site-title">
       <h1><a href="index.html">Soy Story</a></h1>
-      <p>A crop report on soybeans for AG BM 170: Exploring the U.S. Food System</p>
+      <p>A crop report on soybeans for AGBM 170: Exploring the U.S. Food System</p>
     </div>
   </div>
 </header>
@@ -36,7 +36,7 @@
 <main>
 
   <h1>Global and National Production – Part B</h1>
-  <p class="byline">By Ruslan Alam · AG BM 170</p>
+  <p class="byline">By Ruslan Alam · AGBM 170</p>
   <p class="crop-choice">Where are soybeans grown around the world, and why?</p>
 
   <p>Soybeans are the biggest oilseed crop in the world. In 2024/25 they made up about <span class="hl">62% of all oilseeds grown</span>, more than rapeseed (canola), sunflower seed, peanuts, and cottonseed put together (<a href="https://www.ers.usda.gov/data-products/oil-crops-yearbook">USDA-ERS Oil Crops Yearbook</a>, Table 41). This page looks at who grows them, where U.S. soybeans are grown, and how much the U.S. trades.</p>
@@ -69,6 +69,11 @@
     <h3>What the charts show</h3>
     <p>World soybean production grew by <span class="hl">62% in 14 years</span>, from 264 to 427 million metric tons. Almost all of that growth came from <strong>South America</strong>. Brazil, Argentina, Paraguay, and Uruguay went from growing half of the world's soybeans to <strong>55%</strong>. The U.S. also grew (+31%), but more slowly, so its share of the world crop fell from about one-third to <strong>28%</strong>. The UN's FAOSTAT database shows the same trend in calendar years: world production grew from <strong>265.1 million tons in 2010</strong> to <strong>397.7 million tons in 2024</strong>, a 50% increase (<a href="https://www.fao.org/faostat/en/#data/QCL">FAOSTAT</a>). Brazil passed the U.S. as the world's #1 soybean grower in 2019/20 (<a href="https://link.springer.com/article/10.1007/s42106-026-00434-x"><em>International Journal of Plant Production</em></a>).</p>
 
+    <figure class="web-photo" style="max-width:100%;">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/SojaBrasnorte.jpg?width=900" alt="Large soybean field in Brazil" loading="lazy" style="display:block; width:100%; border-radius:6px;" onerror="this.closest('figure').remove()">
+      <figcaption>A soybean field in Brazil. Farms like this in the Cerrado made Brazil the world's #1 soybean grower. Image: <a href="https://commons.wikimedia.org/wiki/File:SojaBrasnorte.jpg">Wikimedia Commons</a>.</figcaption>
+    </figure>
+
     <h3>Why South America?</h3>
     <ul>
       <li><strong>New seeds for the tropics.</strong> Brazil's government research agency, Embrapa, bred a "tropical soybean" that grows well in hot weather and acidic soil. That opened up the huge Cerrado savanna in central Brazil to farming (<a href="https://www.ocl-journal.org/articles/ocl/full_html/2018/01/ocl170039/ocl170039.html"><em>OCL</em> journal</a>).</li>
@@ -76,13 +81,20 @@
       <li><strong>China's demand.</strong> China, where soybeans started, is now the world's biggest <em>importer</em> (<a href="https://www.nationalgeographic.com/environment/article/soybeans-took-over-world-food-agriculture">National Geographic</a>). It needs soybean meal to feed its pigs and chickens, and Brazil is its main supplier.</li>
     </ul>
 
-    <figure>
-      <p class="chart-title">Top 10 soybean-producing countries (FAOSTAT)</p>
-      <div class="photo-slot" style="aspect-ratio: 16 / 6;">
-        <span><strong>Country-by-country charts in progress.</strong><br>Data: FAOSTAT crop production, soybeans, all countries, 2010 and latest year.</span>
-      </div>
-      <figcaption>Source: UN Food and Agriculture Organization, <a href="https://www.fao.org/faostat/en/#data/QCL">FAOSTAT</a>.</figcaption>
-    </figure>
+    <h3>Top 10 soybean-producing countries</h3>
+    <div class="photo-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+      <figure>
+        <p class="chart-title">2024</p>
+        <div class="chart-box" style="height: 340px;"><canvas id="chart-countries-2024" aria-label="Bar chart of top 10 soybean-producing countries in 2024" role="img"></canvas></div>
+      </figure>
+      <figure>
+        <p class="chart-title">2010</p>
+        <div class="chart-box" style="height: 340px;"><canvas id="chart-countries-2010" aria-label="Bar chart of top 10 soybean-producing countries in 2010" role="img"></canvas></div>
+      </figure>
+    </div>
+    <p class="cite">Source: UN Food and Agriculture Organization, <a href="https://www.fao.org/faostat/en/#data/QCL">FAOSTAT</a> (crops and livestock products, soya beans, production). Million metric tons. The U.S. is shown in red.</p>
+
+    <p>The biggest change is at the top. In 2010 the <strong>United States</strong> was #1 with 90.7 million tons. By 2024, <strong>Brazil</strong> had more than doubled its crop (<span class="hl">68.8 → 144.5 million tons, +110%</span>) and passed the U.S. The U.S. still grew (+31%), and <strong>Argentina</strong> actually fell a little (−8%). Two newcomers joined the top 10: <strong>Russia</strong> (1.2 → 7.0 million tons) and a much bigger <strong>Ukraine</strong> (1.7 → 6.6). <strong>China</strong> grows only about 21 million tons, a small amount compared to how many soybeans it buys from other countries.</p>
   </section>
 
   <!-- ===================== B2 ===================== -->
@@ -90,13 +102,20 @@
     <h2>2. Top soybean states in the U.S.</h2>
     <p class="prompt">Bar charts of the top ten producing states.</p>
     <p>U.S. soybeans are grown mostly in the Corn Belt and the Upper Midwest, usually in rotation with corn. Illinois was the top soybean state in 2022, followed by Iowa (<a href="https://www.morningagclips.com/illinois-top-soybean-producer-for-2022/">Morning Ag Clips, using USDA-NASS data</a>). Soybeans fit these states well: deep, rich soils, enough summer rain, and a short trip to river barges and crushing plants.</p>
-    <figure>
-      <p class="chart-title">Top 10 soybean-producing states</p>
-      <div class="photo-slot" style="aspect-ratio: 16 / 6;">
-        <span><strong>State charts in progress.</strong><br>Data: USDA-NASS Quick Stats, soybeans, production by state.</span>
-      </div>
-      <figcaption>Source: USDA National Agricultural Statistics Service, <a href="https://quickstats.nass.usda.gov/">Quick Stats</a> and <a href="https://www.nass.usda.gov/Charts_and_Maps/Crops_County/sb-pr.php">soybean production by county map</a>.</figcaption>
-    </figure>
+    <div class="photo-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+      <figure>
+        <p class="chart-title">2025 – acres harvested</p>
+        <div class="chart-box" style="height: 360px;"><canvas id="chart-states-2025" aria-label="Bar chart of top 10 soybean states by acres harvested in 2025, plus Pennsylvania" role="img"></canvas></div>
+      </figure>
+      <figure>
+        <p class="chart-title">2010 – acres planted</p>
+        <div class="chart-box" style="height: 360px;"><canvas id="chart-states-2010" aria-label="Bar chart of top 10 soybean states by acres planted in 2010, plus Pennsylvania" role="img"></canvas></div>
+      </figure>
+    </div>
+    <p class="cite">Source: USDA National Agricultural Statistics Service, <a href="https://quickstats.nass.usda.gov/">Quick Stats</a> (soybeans, state level, final annual estimates). Million acres. I added Pennsylvania (in red) as an 11th bar, since that is where I go to school.</p>
+
+    <p>The top soybean states barely changed in 15 years. They are all in the Midwest and Great Plains. <strong>Illinois</strong> (10.2 million acres) passed <strong>Iowa</strong> to become #1 by 2025. The biggest mover was <strong>North Dakota</strong>, which jumped from #10 to #4 (4.1 → 6.5 million acres). The top 10 states together had about <span class="hl">63 of the 80 million soybean acres harvested in 2025 (almost 80%)</span>. <strong>Pennsylvania</strong> is small by comparison, with about 570,000 acres.</p>
+    <p class="cite">Note: these charts compare acres, which is how much land is used for soybeans. Acres track production closely, but they are not the same thing.</p>
   </section>
 
   <!-- ===================== B3 ===================== -->
@@ -195,7 +214,7 @@
 </div>
 
 <footer class="site-footer">
-  <p>Soy Story · A crop report on soybeans by Ruslan Alam · AG BM 170</p>
+  <p>Soy Story · A crop report on soybeans by Ruslan Alam · AGBM 170</p>
 </footer>
 
 <script src="assets/js/vendor/chart.umd.min.js"></script>
