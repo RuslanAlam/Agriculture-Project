@@ -224,12 +224,12 @@
   }
 
   /* ---------- Part B, Q5: export destinations (Table 38), thousand metric tons ---------- */
-  const destColors = { China: RUST, Mexico: GOLD, Egypt: "#6f9a4a", Germany: "#3b6e8f", Japan: "#8c6bb1", Indonesia: "#c77c3a", Netherlands: "#5c8a8a", "All others": "#c9c2b0" };
+  const destColors = { China: RUST, Mexico: GOLD, Egypt: "#6f9a4a", Germany: "#3b6e8f", Japan: "#8c6bb1", Indonesia: "#c77c3a", Netherlands: "#5c8a8a", Taiwan: "#b5838d", "All others": "#c9c2b0" };
   const destinations = {
-    "2015/16": { China: 30562, Mexico: 3577, Germany: 2332, Indonesia: 2286, Japan: 2282, Netherlands: 1412, total: 52869 },
+    "2014/15": { China: 29516, Mexico: 3578, Japan: 2171, Indonesia: 1930, Netherlands: 1822, Taiwan: 1434, total: 50136 },
     "2024/25": { China: 22649, Mexico: 5208, Egypt: 3339, Germany: 2464, Japan: 2172, Indonesia: 2159, total: 51227 },
   };
-  Object.entries({ "chart-dest-2015": "2015/16", "chart-dest-2024": "2024/25" }).forEach(([id, season]) => {
+  Object.entries({ "chart-dest-2014": "2014/15", "chart-dest-2024": "2024/25" }).forEach(([id, season]) => {
     if (!$(id)) return;
     const d = destinations[season];
     const names = Object.keys(d).filter((k) => k !== "total");
@@ -237,10 +237,10 @@
     names.push("All others");
     vals.push(d.total - vals.reduce((a, b) => a + b, 0));
     new Chart($(id), {
-      type: "doughnut",
+      type: "pie",
       data: { labels: names, datasets: [{ data: vals, backgroundColor: names.map((n) => destColors[n]), borderColor: "#fff", borderWidth: 2 }] },
       options: {
-        maintainAspectRatio: false, cutout: "52%",
+        maintainAspectRatio: false,
         plugins: {
           legend: { position: "bottom", labels: { boxWidth: 12, font: { size: 12 } } },
           tooltip: { callbacks: { label: (c) => ` ${c.label}: ${(c.parsed / 1000).toFixed(1)} MMT (${(100 * c.parsed / d.total).toFixed(0)}%)` } },
