@@ -223,17 +223,18 @@
     });
   }
 
-  /* ---------- Part B, Q4: import sources (USDA-FAS GATS, HS 1201900090), metric tons ---------- */
-  const impColors = { Brazil: GOLD, Canada: RUST, Paraguay: "#6f9a4a", China: "#3b6e8f", Turkey: "#8c6bb1", Argentina: "#5c8a8a", "All others": "#c9c2b0" };
+  /* ---------- Part B, Q4: import sources (USDA-FAS GATS), value in $ thousands.
+     Whole soybeans = HS 1201900090 (soybeans, other) + HS 1201900010 (organic soybeans). ---------- */
+  const impColors = { Brazil: GOLD, Canada: RUST, India: "#6f9a4a", China: "#3b6e8f", Paraguay: "#8c6bb1", Ukraine: "#5c8a8a", Argentina: "#6f9a4a", Turkey: "#3b6e8f", Ghana: "#8c6bb1", Mexico: "#5c8a8a", "All others": "#c9c2b0" };
   const importSources = {
-    "chart-imp-2014": { total: 763301.9, rows: [["Brazil", 497341.3], ["Canada", 124987.9], ["Paraguay", 94330.0], ["China", 18079.2], ["Turkey", 11865.7]] },
-    "chart-imp-2024": { total: 265320.4, rows: [["Brazil", 140056.6], ["Canada", 118674.2], ["Argentina", 1591.0], ["Turkey", 1355.2], ["China", 1191.6]] },
+    "chart-imp-2014": { total: 602129, rows: [["Brazil", 257707], ["Canada", 85200], ["India", 82005], ["China", 55128], ["Paraguay", 51505], ["Ukraine", 22956]] },
+    "chart-imp-2024": { total: 294699, rows: [["Canada", 85295], ["Argentina", 65303], ["Brazil", 57112], ["Turkey", 37140], ["Ghana", 13506], ["Mexico", 7412]] },
   };
   Object.entries(importSources).forEach(([id, d]) => {
     if (!$(id)) return;
     const names = d.rows.map((r) => r[0]).concat(["All others"]);
     const vals = d.rows.map((r) => r[1]);
-    vals.push(+(d.total - vals.reduce((a, b) => a + b, 0)).toFixed(1));
+    vals.push(d.total - vals.reduce((a, b) => a + b, 0));
     new Chart($(id), {
       type: "pie",
       data: { labels: names, datasets: [{ data: vals, backgroundColor: names.map((n) => impColors[n]), borderColor: "#fff", borderWidth: 2 }] },
@@ -241,7 +242,7 @@
         maintainAspectRatio: false,
         plugins: {
           legend: { position: "bottom", labels: { boxWidth: 12, font: { size: 12 } } },
-          tooltip: { callbacks: { label: (c) => ` ${c.label}: ${Math.round(c.parsed).toLocaleString()} metric tons (${(100 * c.parsed / d.total).toFixed(1)}%)` } },
+          tooltip: { callbacks: { label: (c) => ` ${c.label}: $${(c.parsed / 1000).toFixed(1)} million (${(100 * c.parsed / d.total).toFixed(1)}%)` } },
         },
       },
     });

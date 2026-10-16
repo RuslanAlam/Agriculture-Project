@@ -168,48 +168,57 @@
       <li>Opened <strong>Standard Query</strong>, kept Data Source on <strong>FAS U.S. Trade</strong>, and set Product Type to <strong>Imports – General</strong>.</li>
       <li>Set Product Groups to <strong>Harmonized (HS-10)</strong> so the search shows real product codes, then searched the text "Soybeans."</li>
       <li>The search returned several codes (screenshot below). The ones starting with <code>12010000</code> are old codes that were replaced in 2012, so they have no data for 2014–2024. <code>1208…</code> codes are soy flour and meal, and <code>2008996100</code> is prepared soybeans, so those are not whole soybeans either. That left two current whole-soybean codes: <code>1201900010</code> (organic soybeans) and <code>1201900090</code> (soybeans, other).</li>
-      <li>I chose <strong><code>1201900090</code> – Soybeans, Other</strong>, the main code for regular whole soybeans. GATS only let me select one code at a time, so organic soybeans (<code>1201900010</code>) are not included in these charts.</li>
-      <li>Partners: <strong>All Partners</strong>. Statistics: value (thousand $) and quantity (metric tons). Dates: annual, January–December, <strong>2014 to 2024</strong>. Then <strong>Retrieve Data</strong> and exported the results to a CSV file.</li>
+      <li>GATS only lets you select one code at a time, so I ran the query <strong>twice</strong>: once for <strong><code>1201900090</code> – Soybeans, Other</strong> (regular soybeans) and once for <strong><code>1201900010</code> – Organic Soybeans, Other</strong>. Then I added the two together by country, so my charts cover <em>all</em> imported whole soybeans.</li>
+      <li>Partners: <strong>All Partners</strong>. Statistics: value (thousand $). Dates: annual, January–December, <strong>2014 to 2024</strong>. Then <strong>Retrieve Data</strong> and exported the results.</li>
     </ol>
     <figure>
-      <img src="assets/img/gats-import-query.webp" alt="Screenshot of the GATS Standard Query page with Imports – General, Harmonized HS-10, the soybean search results list, 1201900090 Soybeans Other selected, All Partners, and years 2014 to 2024" loading="lazy" width="1976" height="750" style="display:block; width:100%; border-radius:6px;">
+      <img src="assets/img/gats-import-query.webp" alt="Screenshot of the GATS Standard Query page with Imports – General, Harmonized HS-10, the soybean search results list including codes 1201900010 and 1201900090, All Partners, and years 2014 to 2024" loading="lazy" width="1976" height="750" style="display:block; width:100%; border-radius:6px;">
       <figcaption>Screenshot of my GATS query, showing the soybean product codes and the settings I used. Source: <a href="https://apps.fas.usda.gov/gats/ExpressQuery1.aspx">USDA-FAS GATS</a>, author's screenshot, Oct. 15, 2026.</figcaption>
     </figure>
 
     <h3>The two pie charts</h3>
     <div class="photo-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
       <figure>
-        <p class="chart-title">2014 (763,302 metric tons)</p>
-        <div class="chart-box" style="height: 340px;"><canvas id="chart-imp-2014" aria-label="Pie chart of U.S. soybean imports by source country in 2014" role="img"></canvas></div>
+        <p class="chart-title">2014 ($602.1 million)</p>
+        <div class="chart-box" style="height: 340px;"><canvas id="chart-imp-2014" aria-label="Pie chart of U.S. soybean imports by source country in 2014, by value" role="img"></canvas></div>
       </figure>
       <figure>
-        <p class="chart-title">2024 (265,320 metric tons)</p>
-        <div class="chart-box" style="height: 340px;"><canvas id="chart-imp-2024" aria-label="Pie chart of U.S. soybean imports by source country in 2024" role="img"></canvas></div>
+        <p class="chart-title">2024 ($294.7 million)</p>
+        <div class="chart-box" style="height: 340px;"><canvas id="chart-imp-2024" aria-label="Pie chart of U.S. soybean imports by source country in 2024, by value" role="img"></canvas></div>
       </figure>
     </div>
-    <p class="cite">Source: <a href="https://apps.fas.usda.gov/gats/ExpressQuery1.aspx">USDA-FAS GATS</a>, Standard Query, Imports – General, HS <code>1201900090</code> (Soybeans, Other), all partners, calendar years. Data: U.S. Census Bureau. Charts are by quantity (metric tons). Hover over a slice for the exact amount.</p>
+    <p class="cite">Source: <a href="https://apps.fas.usda.gov/gats/ExpressQuery1.aspx">USDA-FAS GATS</a>, Standard Query, Imports – General, HS <code>1201900090</code> + HS <code>1201900010</code>, all partners, calendar years, value in thousands of dollars. Data: U.S. Census Bureau. Hover over a slice for the exact amount.</p>
 
     <div class="table-scroll">
     <table>
-      <thead><tr><th>Source country</th><th class="num">2014 (t)</th><th class="num">Share</th><th class="num">2024 (t)</th><th class="num">Share</th></tr></thead>
+      <thead><tr><th rowspan="2">Source country</th><th class="num" colspan="3">2014 ($ thousand)</th><th class="num" colspan="3">2024 ($ thousand)</th></tr>
+        <tr><th class="num">Regular</th><th class="num">Organic</th><th class="num">Total (share)</th><th class="num">Regular</th><th class="num">Organic</th><th class="num">Total (share)</th></tr></thead>
       <tbody>
-        <tr><td>Brazil</td><td class="num">497,341</td><td class="num">65.2%</td><td class="num">140,057</td><td class="num">52.8%</td></tr>
-        <tr><td>Canada</td><td class="num">124,988</td><td class="num">16.4%</td><td class="num">118,674</td><td class="num">44.7%</td></tr>
-        <tr><td>Paraguay</td><td class="num">94,330</td><td class="num">12.4%</td><td class="num">1,013</td><td class="num">0.4%</td></tr>
-        <tr><td>China</td><td class="num">18,079</td><td class="num">2.4%</td><td class="num">1,192</td><td class="num">0.4%</td></tr>
-        <tr><td>Turkey</td><td class="num">11,866</td><td class="num">1.6%</td><td class="num">1,355</td><td class="num">0.5%</td></tr>
-        <tr><td>Argentina</td><td class="num">0</td><td class="num">0%</td><td class="num">1,591</td><td class="num">0.6%</td></tr>
-        <tr><th>Total, all countries</th><th class="num">763,302</th><th class="num">100%</th><th class="num">265,320</th><th class="num">100%</th></tr>
-        <tr><td>Total value</td><td class="num" colspan="2">$418.0 million</td><td class="num" colspan="2">$119.4 million</td></tr>
+        <tr><td>Canada</td><td class="num">68,204</td><td class="num">16,996</td><td class="num">85,200 (14%)</td><td class="num">56,258</td><td class="num">29,037</td><td class="num">85,295 (29%)</td></tr>
+        <tr><td>Argentina</td><td class="num">0</td><td class="num">14,183</td><td class="num">14,183 (2%)</td><td class="num">856</td><td class="num">64,447</td><td class="num">65,303 (22%)</td></tr>
+        <tr><td>Brazil</td><td class="num">257,707</td><td class="num">0</td><td class="num">257,707 (43%)</td><td class="num">57,112</td><td class="num">0</td><td class="num">57,112 (19%)</td></tr>
+        <tr><td>Turkey</td><td class="num">10,001</td><td class="num">11,654</td><td class="num">21,655 (4%)</td><td class="num">865</td><td class="num">36,275</td><td class="num">37,140 (13%)</td></tr>
+        <tr><td>Ghana</td><td class="num">0</td><td class="num">0</td><td class="num">0 (0%)</td><td class="num">0</td><td class="num">13,506</td><td class="num">13,506 (5%)</td></tr>
+        <tr><td>India</td><td class="num">7,640</td><td class="num">74,365</td><td class="num">82,005 (14%)</td><td class="num">21</td><td class="num">0</td><td class="num">21 (0%)</td></tr>
+        <tr><td>China</td><td class="num">15,605</td><td class="num">39,523</td><td class="num">55,128 (9%)</td><td class="num">2,076</td><td class="num">101</td><td class="num">2,177 (1%)</td></tr>
+        <tr><td>Paraguay</td><td class="num">51,505</td><td class="num">0</td><td class="num">51,505 (9%)</td><td class="num">728</td><td class="num">2,516</td><td class="num">3,244 (1%)</td></tr>
+        <tr><th>Total, all countries</th><th class="num">417,961</th><th class="num">184,168</th><th class="num">602,129</th><th class="num">119,362</th><th class="num">175,338</th><th class="num">294,699</th></tr>
+        <tr><td>Organic share of total</td><td class="num" colspan="3">31%</td><td class="num" colspan="3">59%</td></tr>
       </tbody>
     </table>
     </div>
+    <p class="cite">Same source. "Regular" = HS 1201900090; "Organic" = HS 1201900010.</p>
 
     <h3>What the charts tell us</h3>
-    <p>In both years, U.S. soybean imports come almost entirely from <strong>two countries: Brazil and Canada</strong>. Together they supplied <span class="hl">82% of imports in 2014 and 98% in 2024</span>. The biggest change is how much <em>less</em> the U.S. imported in 2024: about 265,000 metric tons, down 65% from 763,000 tons in 2014. That is very small next to the roughly 119 million tons the U.S. grew in 2024 (<a href="https://www.fao.org/faostat/en/#data/QCL">FAOSTAT</a>), only about 0.2%.</p>
-    <p><strong>Why Brazil?</strong> Brazil is the world's biggest soybean grower (question 1), but its sales to the U.S. jump around a lot. In my data, imports from Brazil were large in 2014, 2021, 2023, and 2024 and zero in 2015–2020 and 2022. 2014 matches a tight U.S. supply: U.S. soybean stocks at the end of the 2013/14 season fell to just <strong>92 million bushels</strong>, the lowest in 30 years (<a href="https://www.ers.usda.gov/data-products/oil-crops-yearbook">USDA-ERS Oil Crops Yearbook</a>, Table 3), so U.S. buyers most likely brought in Brazilian beans to fill the gap.</p>
-    <p><strong>Why Canada?</strong> Canada is the steady supplier. It shipped about the same amount in 2014 and 2024 (125,000 vs. 119,000 tons), and since it is right next door, its soybeans can reach U.S. processors without crossing an ocean. Because Brazil's share shrank, Canada's share grew from 16% to almost 45%.</p>
-    <p><strong>What surprised me:</strong> the U.S., the world's #2 soybean grower, still buys soybeans from other countries at all. The small amounts from <strong>China</strong> are also interesting. In 2024, China's soybeans cost about <strong>$1,740 per ton</strong> ($2.08 million for 1,192 tons) compared with about <strong>$410–$475 per ton</strong> from Brazil and Canada, so they are probably special food-grade beans, not ordinary soybeans for crushing.</p>
+    <p>The two pies look completely different. In <strong>2014</strong>, <strong>Brazil</strong> was the biggest source by far (<span class="hl">43% of import value</span>), and all of it was regular soybeans. By <strong>2024</strong>, no country had more than 30%. <strong>Canada</strong> was #1 (29%), followed by <strong>Argentina</strong> (22%), Brazil (19%), and <strong>Turkey</strong> (13%). Total import value also fell by about half, from $602 million to $295 million. That is tiny compared with the roughly 119 million tons of soybeans the U.S. grew in 2024 (<a href="https://www.fao.org/faostat/en/#data/QCL">FAOSTAT</a>).</p>
+    <p><strong>The big story is organic soybeans.</strong> In 2014, organic beans were about 31% of U.S. soybean import value. In 2024 they were <span class="hl">59%</span>, so most of the money the U.S. spends on imported soybeans now goes to organic ones. This matches what I found in Part C: organic soybeans are less than 1% of U.S. acres, so the U.S. cannot grow enough for organic tofu, soy milk, and organic animal feed. Almost all of Argentina's, Turkey's, and Ghana's sales to the U.S. in 2024 were organic.</p>
+    <p><strong>Why some countries disappeared:</strong></p>
+    <ul>
+      <li><strong>India</strong> sold the U.S. $74 million of organic soybeans in 2014 and nothing in 2024. In January 2021, USDA ended its agreement that let India's own government certify products as USDA organic. Indian exporters then had to get certified directly by USDA-accredited certifiers (<a href="https://www.ams.usda.gov/services/organic-certification/international-trade/India">USDA-AMS</a>; <a href="https://www.foodsafetynews.com/2021/01/usda-increasing-certification-requirements-for-organic-imports-from-india/">Food Safety News</a>). In my data, India's organic sales fell from $25 million in 2020 to $12 million in 2021 and to zero by 2023.</li>
+      <li><strong>Turkey</strong> jumped to $104 million of organic soybeans in 2016, then crashed to almost nothing by 2019. In 2017, a <em>Washington Post</em> investigation found that millions of pounds of "organic" soybeans shipped through Turkey were really ordinary soybeans, and USDA revoked a Turkish exporter's organic certificate (<a href="https://www.washingtonpost.com/news/wonk/wp/2017/06/12/millions-of-pounds-of-apparently-fake-organic-grains-convince-the-food-industry-there-may-be-a-problem/">Washington Post</a>). Turkey's sales have since come back (about $36 million in 2024).</li>
+      <li><strong>Brazil's</strong> sales jump around from year to year. They were large in 2014, 2021, 2023, and 2024 and zero in 2015–2020 and 2022. 2014 matches a tight U.S. supply: U.S. soybean stocks at the end of the 2013/14 season fell to just <strong>92 million bushels</strong>, the lowest in 30 years (<a href="https://www.ers.usda.gov/data-products/oil-crops-yearbook">USDA-ERS Oil Crops Yearbook</a>, Table 3), so U.S. buyers most likely brought in Brazilian beans to fill the gap.</li>
+    </ul>
+    <p><strong>What surprised me:</strong> I expected U.S. imports to be about price or bad harvests. But they are really about <em>trust</em> in organic labels. The countries selling to the U.S. changed a lot because of fraud and certification rules, not because of how many soybeans they grow. Canada is the steady one: next door, and selling about the same $85 million in both years.</p>
   </section>
 
   <!-- ===================== B5 ===================== -->
