@@ -169,13 +169,13 @@
 
 
   /* ---------- Part B: top-10 bar charts ----------
-     Countries: FAOSTAT (QCL, soya beans, production), million metric tons.
-     States: USDA-NASS Quick Stats, million acres (2010 planted, 2025 harvested). */
+     Countries: FAOSTAT (QCL, soya beans, production), million metric tons (2014 and 2024).
+     States: USDA-NASS Quick Stats, value of production, billion dollars (2014 and 2024). */
   const top10 = {
-    "chart-countries-2024": { unit: "million metric tons", decimals: 1, color: GOLD, highlight: "United States", rows: [["Brazil", 144.47], ["United States", 118.84], ["Argentina", 48.21], ["China", 20.66], ["India", 15.13], ["Paraguay", 11.1], ["Canada", 7.57], ["Russia", 7.0], ["Ukraine", 6.64], ["Bolivia", 3.22]] },
-    "chart-countries-2010": { unit: "million metric tons", decimals: 1, color: GOLD, highlight: "United States", rows: [["United States", 90.66], ["Brazil", 68.76], ["Argentina", 52.68], ["China", 15.08], ["India", 12.73], ["Paraguay", 7.46], ["Canada", 4.44], ["Uruguay", 1.79], ["Bolivia", 1.69], ["Ukraine", 1.68]] },
-    "chart-states-2025": { unit: "million acres harvested", decimals: 2, color: GREEN, highlight: "Pennsylvania", rows: [["Illinois", 10.23], ["Iowa", 9.38], ["Minnesota", 7.07], ["North Dakota", 6.49], ["Missouri", 5.53], ["Indiana", 5.43], ["South Dakota", 5.06], ["Ohio", 4.88], ["Nebraska", 4.79], ["Kansas", 4.05], ["Pennsylvania", 0.57]] },
-    "chart-states-2010": { unit: "million acres planted", decimals: 2, color: GREEN, highlight: "Pennsylvania", rows: [["Iowa", 9.8], ["Illinois", 9.1], ["Minnesota", 7.4], ["Indiana", 5.35], ["Missouri", 5.15], ["Nebraska", 5.15], ["Ohio", 4.6], ["Kansas", 4.3], ["South Dakota", 4.2], ["North Dakota", 4.1], ["Pennsylvania", 0.5]] },
+    "chart-countries-2024": { max: 160,  unit: "million metric tons", decimals: 1, color: GOLD, highlight: "United States", rows: [["Brazil", 144.47], ["United States", 118.84], ["Argentina", 48.21], ["China", 20.66], ["India", 15.13], ["Paraguay", 11.1], ["Canada", 7.57], ["Russia", 7.0], ["Ukraine", 6.64], ["Bolivia", 3.22]] },
+    "chart-countries-2014": { max: 160,  unit: "million metric tons", decimals: 1, color: GOLD, highlight: "United States", rows: [["United States", 106.88], ["Brazil", 86.76], ["Argentina", 53.4], ["China", 12.16], ["India", 10.37], ["Paraguay", 9.97], ["Canada", 6.04], ["Ukraine", 3.88], ["Uruguay", 3.16], ["Bolivia", 2.81]] },
+    "chart-states-2024": { max: 8,  unit: "billion dollars", decimals: 2, color: GREEN, highlight: "Pennsylvania", rows: [["Illinois", 7.02], ["Iowa", 5.95], ["Indiana", 3.55], ["Minnesota", 3.24], ["Nebraska", 2.95], ["Missouri", 2.91], ["Ohio", 2.62], ["North Dakota", 2.34], ["South Dakota", 2.24], ["Arkansas", 1.66], ["Pennsylvania", 0.28]] },
+    "chart-states-2014": { max: 8,  unit: "billion dollars", decimals: 2, color: GREEN, highlight: "Pennsylvania", rows: [["Illinois", 5.58], ["Iowa", 4.96], ["Indiana", 3.08], ["Minnesota", 3.0], ["Nebraska", 2.8], ["Missouri", 2.6], ["Ohio", 2.54], ["South Dakota", 2.15], ["North Dakota", 1.92], ["Arkansas", 1.68], ["Pennsylvania", 0.28]] },
   };
   Object.entries(top10).forEach(([id, cfg]) => {
     if (!$(id)) return;
@@ -187,8 +187,8 @@
       },
       options: {
         indexAxis: "y", maintainAspectRatio: false, layout: { padding: { right: 40 } },
-        plugins: { legend: { display: false }, valueLabels: { decimals: cfg.decimals }, tooltip: { callbacks: { label: (c) => ` ${c.parsed.x} ${cfg.unit}` } } },
-        scales: { x: { beginAtZero: true, title: { display: true, text: cfg.unit[0].toUpperCase() + cfg.unit.slice(1) }, grid: { color: GRID } }, y: { grid: { display: false } } },
+        plugins: { legend: { display: false }, valueLabels: { decimals: cfg.decimals }, tooltip: { callbacks: { label: (c) => (cfg.unit === "billion dollars" ? ` $${c.parsed.x} billion` : ` ${c.parsed.x} ${cfg.unit}`) } } },
+        scales: { x: { beginAtZero: true, max: cfg.max, title: { display: true, text: cfg.unit[0].toUpperCase() + cfg.unit.slice(1) }, grid: { color: GRID } }, y: { grid: { display: false } } },
       },
       plugins: [valueLabels],
     });
