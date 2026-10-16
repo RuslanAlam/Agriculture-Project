@@ -223,6 +223,30 @@
     });
   }
 
+  /* ---------- Part B, Q4: import sources (USDA-FAS GATS, HS 1201900090), metric tons ---------- */
+  const impColors = { Brazil: GOLD, Canada: RUST, Paraguay: "#6f9a4a", China: "#3b6e8f", Turkey: "#8c6bb1", Argentina: "#5c8a8a", "All others": "#c9c2b0" };
+  const importSources = {
+    "chart-imp-2014": { total: 763301.9, rows: [["Brazil", 497341.3], ["Canada", 124987.9], ["Paraguay", 94330.0], ["China", 18079.2], ["Turkey", 11865.7]] },
+    "chart-imp-2024": { total: 265320.4, rows: [["Brazil", 140056.6], ["Canada", 118674.2], ["Argentina", 1591.0], ["Turkey", 1355.2], ["China", 1191.6]] },
+  };
+  Object.entries(importSources).forEach(([id, d]) => {
+    if (!$(id)) return;
+    const names = d.rows.map((r) => r[0]).concat(["All others"]);
+    const vals = d.rows.map((r) => r[1]);
+    vals.push(+(d.total - vals.reduce((a, b) => a + b, 0)).toFixed(1));
+    new Chart($(id), {
+      type: "pie",
+      data: { labels: names, datasets: [{ data: vals, backgroundColor: names.map((n) => impColors[n]), borderColor: "#fff", borderWidth: 2 }] },
+      options: {
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: "bottom", labels: { boxWidth: 12, font: { size: 12 } } },
+          tooltip: { callbacks: { label: (c) => ` ${c.label}: ${Math.round(c.parsed).toLocaleString()} metric tons (${(100 * c.parsed / d.total).toFixed(1)}%)` } },
+        },
+      },
+    });
+  });
+
   /* ---------- Part B, Q5: export destinations (Table 38), thousand metric tons ---------- */
   const destColors = { China: RUST, Mexico: GOLD, Egypt: "#6f9a4a", Germany: "#3b6e8f", Japan: "#8c6bb1", Indonesia: "#c77c3a", Netherlands: "#5c8a8a", Taiwan: "#b5838d", "All others": "#c9c2b0" };
   const destinations = {
