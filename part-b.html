@@ -248,40 +248,49 @@
   <!-- ===================== B5 ===================== -->
   <section class="question" id="b5">
     <h2>5. Where do U.S. soybean exports go?</h2>
+    <p class="prompt">Two pie charts of the top destinations for U.S. exports, one for 2024 and one for 2014, with a detailed explanation.</p>
 
-    <p class="prompt">Two pie charts of the top destinations for U.S. exports, with a detailed explanation.</p>
+    <h3>How I got the data</h3>
+    <p>I used the same <a href="https://apps.fas.usda.gov/gats/ExpressQuery1.aspx">GATS</a> Standard Query as question 4, but with Product Type set to <strong>Exports</strong>. Searching "Soybeans" under Harmonized (HS-10) gave a different list of export codes (screenshot below). I first tried <code>1201900005</code> (Soybean, Oil Stock), but it only covered about $264 million of exports in 2014, a small specialty category. The main code is <strong><code>1201900095</code> – Soybean, Other</strong>, which covered <strong>$23.6 billion</strong> of exports in 2014, so that is the one I used. The rest of the settings: All Partners, value and quantity (metric tons), annual January–December, 2014 to 2024.</p>
+    <figure>
+      <img src="assets/img/gats-export-query.webp" alt="Screenshot of the GATS Standard Query page set to Exports and Harmonized HS-10, showing the soybean export codes including 1201900005 and 1201900095" loading="lazy" width="1976" height="750" style="display:block; width:100%; border-radius:6px;">
+      <figcaption>Screenshot of the GATS export code list. Source: <a href="https://apps.fas.usda.gov/gats/ExpressQuery1.aspx">USDA-FAS GATS</a>, author's screenshot, Oct. 15, 2026.</figcaption>
+    </figure>
 
+    <h3>The two pie charts</h3>
     <div class="photo-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
       <figure>
-        <p class="chart-title">2014/15 (50.1 million metric tons)</p>
-        <div class="chart-box" style="height: 340px;"><canvas id="chart-dest-2014" aria-label="Pie chart of U.S. soybean export destinations in 2014/15" role="img"></canvas></div>
+        <p class="chart-title">2014 (49.0 million metric tons)</p>
+        <div class="chart-box" style="height: 340px;"><canvas id="chart-dest-2014" aria-label="Pie chart of U.S. soybean export destinations in 2014" role="img"></canvas></div>
       </figure>
       <figure>
-        <p class="chart-title">2024/25 (51.2 million metric tons)</p>
-        <div class="chart-box" style="height: 340px;"><canvas id="chart-dest-2024" aria-label="Pie chart of U.S. soybean export destinations in 2024/25" role="img"></canvas></div>
+        <p class="chart-title">2024 (51.8 million metric tons)</p>
+        <div class="chart-box" style="height: 340px;"><canvas id="chart-dest-2024" aria-label="Pie chart of U.S. soybean export destinations in 2024" role="img"></canvas></div>
       </figure>
     </div>
-    <p class="cite">Source: USDA-ERS <a href="https://www.ers.usda.gov/data-products/oil-crops-yearbook">Oil Crops Yearbook</a>, Table 38, "U.S. soybean exports by selected destinations" (2022 edition for 2014/15; 2025 edition for 2024/25). USDA builds this table from U.S. Census Bureau foreign trade data, the same trade records used in USDA's GATS database. Thousand metric tons; marketing years run September–August. Hover over a slice for the exact amount.</p>
+    <p class="cite">Source: <a href="https://apps.fas.usda.gov/gats/ExpressQuery1.aspx">USDA-FAS GATS</a>, Standard Query, Exports, HS <code>1201900095</code> (Soybean, Other), all partners, calendar years. Data: U.S. Census Bureau. Charts are by quantity (metric tons). Hover over a slice for the exact amount.</p>
 
     <div class="table-scroll">
     <table>
-      <thead><tr><th>Destination</th><th class="num">2014/15 (1,000 t)</th><th class="num">Share</th><th class="num">2024/25 (1,000 t)</th><th class="num">Share</th></tr></thead>
+      <thead><tr><th>Destination</th><th class="num">2014 (million t)</th><th class="num">Share</th><th class="num">2024 (million t)</th><th class="num">Share</th></tr></thead>
       <tbody>
-        <tr><td>China</td><td class="num">29,516</td><td class="num">58.9%</td><td class="num">22,649</td><td class="num">44.2%</td></tr>
-        <tr><td>Mexico</td><td class="num">3,578</td><td class="num">7.1%</td><td class="num">5,208</td><td class="num">10.2%</td></tr>
-        <tr><td>Egypt</td><td class="num">596</td><td class="num">1.2%</td><td class="num">3,339</td><td class="num">6.5%</td></tr>
-        <tr><td>Germany</td><td class="num">1,085</td><td class="num">2.2%</td><td class="num">2,464</td><td class="num">4.8%</td></tr>
-        <tr><td>Japan</td><td class="num">2,171</td><td class="num">4.3%</td><td class="num">2,172</td><td class="num">4.2%</td></tr>
-        <tr><td>Indonesia</td><td class="num">1,930</td><td class="num">3.8%</td><td class="num">2,159</td><td class="num">4.2%</td></tr>
-        <tr><td>Netherlands</td><td class="num">1,822</td><td class="num">3.6%</td><td class="num">813</td><td class="num">1.6%</td></tr>
-        <tr><td>Taiwan</td><td class="num">1,434</td><td class="num">2.9%</td><td class="num">1,514</td><td class="num">3.0%</td></tr>
-        <tr><th>Total, all countries</th><th class="num">50,136</th><th class="num">100%</th><th class="num">51,227</th><th class="num">100%</th></tr>
+        <tr><td>China</td><td class="num">30.81</td><td class="num">62.8%</td><td class="num">26.76</td><td class="num">51.6%</td></tr>
+        <tr><td>Mexico</td><td class="num">3.54</td><td class="num">7.2%</td><td class="num">4.97</td><td class="num">9.6%</td></tr>
+        <tr><td>Egypt</td><td class="num">0.64</td><td class="num">1.3%</td><td class="num">2.56</td><td class="num">4.9%</td></tr>
+        <tr><td>Indonesia</td><td class="num">1.87</td><td class="num">3.8%</td><td class="num">2.50</td><td class="num">4.8%</td></tr>
+        <tr><td>Germany</td><td class="num">1.15</td><td class="num">2.3%</td><td class="num">2.45</td><td class="num">4.7%</td></tr>
+        <tr><td>Japan</td><td class="num">1.84</td><td class="num">3.7%</td><td class="num">1.94</td><td class="num">3.7%</td></tr>
+        <tr><td>Taiwan</td><td class="num">1.41</td><td class="num">2.9%</td><td class="num">1.21</td><td class="num">2.3%</td></tr>
+        <tr><th>Total, all countries</th><th class="num">49.03</th><th class="num">100%</th><th class="num">51.81</th><th class="num">100%</th></tr>
+        <tr><td>Total value</td><td class="num" colspan="2">$23.6 billion</td><td class="num" colspan="2">$24.2 billion</td></tr>
       </tbody>
     </table>
     </div>
 
-    <p><strong>China</strong> is still the #1 buyer, but it matters less than it did ten years ago. In 2014/15 China bought <span class="hl">59% of all U.S. soybean exports</span>; by 2024/25 that was down to 44%, a drop of about 6.9 million metric tons. The total amount the U.S. exported barely changed (50.1 vs. 51.2 million tons), which means other buyers filled almost the whole gap. <strong>Mexico</strong> grew from 7% to 10%, <strong>Egypt</strong> went from about 1% to 6.5%, and <strong>Germany</strong> more than doubled its purchases.</p>
-    <p>My analysis: this is what the soybean industry calls "diversifying." After China cut back during the 2018 trade war (see <a href="part-d.html#d3">Part D</a>), U.S. exporters looked for other customers. Mexico is a natural fit because it is right next door. Even so, almost half of U.S. soybean exports still go to one country, so a fight with China can still hit soybean farmers hard, which is exactly what happened again in 2025.</p>
+    <h3>What the charts tell us</h3>
+    <p><strong>China</strong> is still by far the #1 buyer, but it matters less than it did. In 2014 China took <span class="hl">63% of U.S. soybean exports</span>; in 2024 it took 52%. That is about 4 million metric tons less. Meanwhile, total U.S. exports barely changed (49.0 vs. 51.8 million tons, and about $24 billion both years), so other buyers filled the gap. <strong>Mexico</strong> grew from 7% to almost 10%, <strong>Egypt</strong> nearly quadrupled its purchases (0.64 → 2.56 million tons), and <strong>Germany</strong> more than doubled.</p>
+    <p><strong>Why the change?</strong> The 2018 trade war shows up clearly in the same GATS data: U.S. soybean exports to China fell from 31.6 million tons in 2017 to just <strong>8.2 million tons in 2018</strong>, after China put a 25% tariff on U.S. soybeans (see <a href="part-d.html#d3">Part D</a>). Exporters looked for other customers, and many of them stayed. Mexico is a natural fit because it is right next door.</p>
+    <p><strong>What surprised me:</strong> even after a trade war, more than half of all U.S. soybean exports still go to one country. USDA's marketing-year numbers, which run September to August, show China's share falling further, to 44% in 2024/25, as the 2025 trade fight began (<a href="https://www.ers.usda.gov/data-products/oil-crops-yearbook">USDA-ERS Oil Crops Yearbook</a>, Table 38). So U.S. soybean farmers are still very exposed to decisions made in Beijing.</p>
   </section>
 
 </main>

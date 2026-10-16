@@ -248,18 +248,16 @@
     });
   });
 
-  /* ---------- Part B, Q5: export destinations (Table 38), thousand metric tons ---------- */
-  const destColors = { China: RUST, Mexico: GOLD, Egypt: "#6f9a4a", Germany: "#3b6e8f", Japan: "#8c6bb1", Indonesia: "#c77c3a", Netherlands: "#5c8a8a", Taiwan: "#b5838d", "All others": "#c9c2b0" };
+  /* ---------- Part B, Q5: export destinations (USDA-FAS GATS, HS 1201900095), metric tons ---------- */
+  const destColors = { China: RUST, Mexico: GOLD, Egypt: "#6f9a4a", Germany: "#3b6e8f", Japan: "#8c6bb1", Indonesia: "#c77c3a", Taiwan: "#b5838d", "All others": "#c9c2b0" };
   const destinations = {
-    "2014/15": { China: 29516, Mexico: 3578, Japan: 2171, Indonesia: 1930, Netherlands: 1822, Taiwan: 1434, total: 50136 },
-    "2024/25": { China: 22649, Mexico: 5208, Egypt: 3339, Germany: 2464, Japan: 2172, Indonesia: 2159, total: 51227 },
+    "chart-dest-2014": { total: 49033678, rows: [["China", 30812341], ["Mexico", 3540517], ["Indonesia", 1873370], ["Japan", 1835624], ["Taiwan", 1410989], ["Germany", 1151038]] },
+    "chart-dest-2024": { total: 51812731, rows: [["China", 26758149], ["Mexico", 4974830], ["Egypt", 2557124], ["Indonesia", 2495557], ["Germany", 2449618], ["Japan", 1939242]] },
   };
-  Object.entries({ "chart-dest-2014": "2014/15", "chart-dest-2024": "2024/25" }).forEach(([id, season]) => {
+  Object.entries(destinations).forEach(([id, d]) => {
     if (!$(id)) return;
-    const d = destinations[season];
-    const names = Object.keys(d).filter((k) => k !== "total");
-    const vals = names.map((n) => d[n]);
-    names.push("All others");
+    const names = d.rows.map((r) => r[0]).concat(["All others"]);
+    const vals = d.rows.map((r) => r[1]);
     vals.push(d.total - vals.reduce((a, b) => a + b, 0));
     new Chart($(id), {
       type: "pie",
@@ -268,7 +266,7 @@
         maintainAspectRatio: false,
         plugins: {
           legend: { position: "bottom", labels: { boxWidth: 12, font: { size: 12 } } },
-          tooltip: { callbacks: { label: (c) => ` ${c.label}: ${(c.parsed / 1000).toFixed(1)} MMT (${(100 * c.parsed / d.total).toFixed(0)}%)` } },
+          tooltip: { callbacks: { label: (c) => ` ${c.label}: ${(c.parsed / 1e6).toFixed(2)} million metric tons (${(100 * c.parsed / d.total).toFixed(1)}%)` } },
         },
       },
     });
