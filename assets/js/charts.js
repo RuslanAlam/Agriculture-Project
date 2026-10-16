@@ -195,21 +195,32 @@
   });
 
   /* ---------- Part B, Q3: U.S. imports and exports ---------- */
+  // Q2 uses 1994–2024 (assignment range). Table 3, million bushels.
+  const TYEARS = Array.from({ length: 31 }, (_, i) => 1994 + i);
+  const exp94 = exports.slice(2).concat([1700.0, 1882.3]);
+  const imp94 = imports.slice(2).concat([20.8, 29.0]);
   if ($("chart-trade")) {
     new Chart($("chart-trade"), {
       type: "line",
       data: {
-        labels: YEARS,
+        labels: TYEARS,
         datasets: [
-          { label: "Exports", data: exports.map((v) => v / 1000), borderColor: GREEN, backgroundColor: GREEN, borderWidth: 3, pointRadius: 2.5, tension: 0.15 },
-          { label: "Imports", data: imports.map((v) => v / 1000), borderColor: RUST, backgroundColor: RUST, borderWidth: 3, pointRadius: 2.5, tension: 0.15 },
+          { label: "Exports", data: exp94.map((v) => v / 1000), borderColor: GREEN, backgroundColor: GREEN, borderWidth: 3, pointRadius: 2.5, tension: 0.15 },
+          { label: "Imports", data: imp94.map((v) => v / 1000), borderColor: RUST, backgroundColor: RUST, borderWidth: 3, pointRadius: 2.5, tension: 0.15 },
         ],
       },
       options: lineOpts("Billion bushels", {
         plugins: { tooltip: { callbacks: { label: (c) => ` ${c.dataset.label}: ${(c.parsed.y * 1000).toFixed(1)} million bushels` } } },
       }),
     });
-    fillTable("trade-rows", YEARS.map((y, i) => [y, exports[i].toFixed(1), imports[i].toFixed(1)]));
+    fillTable("trade-rows", TYEARS.map((y, i) => [y, exp94[i].toFixed(1), imp94[i].toFixed(1)]));
+  }
+  if ($("chart-imports")) {
+    new Chart($("chart-imports"), {
+      type: "line",
+      data: { labels: TYEARS, datasets: [{ label: "Imports", data: imp94, borderColor: RUST, backgroundColor: "rgba(164, 71, 27, 0.12)", fill: true, borderWidth: 3, pointRadius: 2.5, tension: 0.15 }] },
+      options: lineOpts("Million bushels", { plugins: { legend: { display: false }, tooltip: { callbacks: { label: (c) => ` Imports: ${c.parsed.y} million bushels` } } } }),
+    });
   }
 
   /* ---------- Part B, Q5: export destinations (Table 38), thousand metric tons ---------- */
