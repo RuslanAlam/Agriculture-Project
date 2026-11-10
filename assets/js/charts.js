@@ -299,4 +299,73 @@
       },
     });
   }
+
+  /* ================= PART C =================
+     farmdoc 2025 Crop Budgets, Table 2 (central IL, high productivity). USDA-ERS GE adoption. */
+  if ($("chart-budget")) {
+    const parts = [["Land rent", 325, "#8a826d"], ["Machinery (power costs)", 159, "#3b6e8f"], ["Seed", 80, GOLD], ["Pesticides", 69, RUST], ["Fertilizers", 60, "#c77c3a"], ["Buildings, insurance, interest, misc.", 82, "#9fae94"], ["Hired labor", 24, GREEN], ["Storage & crop insurance", 16, "#c9c2b0"]];
+    new Chart($("chart-budget"), {
+      type: "doughnut",
+      data: { labels: parts.map((p) => p[0]), datasets: [{ data: parts.map((p) => p[1]), backgroundColor: parts.map((p) => p[2]), borderColor: "#fff", borderWidth: 2 }] },
+      options: {
+        maintainAspectRatio: false, cutout: "50%",
+        plugins: {
+          legend: { position: window.innerWidth < 640 ? "bottom" : "right", labels: { boxWidth: 12, font: { size: 12 } } },
+          tooltip: { callbacks: { label: (c) => ` ${c.label}: $${c.parsed} per acre (${(100 * c.parsed / 815).toFixed(1)}%)` } },
+        },
+      },
+    });
+  }
+
+  if ($("chart-intensity")) {
+    new Chart($("chart-intensity"), {
+      type: "bar",
+      data: {
+        labels: ["Labor intensity", "Chemical intensity"],
+        datasets: [
+          { label: "Soybeans", data: [2.9, 15.8], backgroundColor: GOLD, borderRadius: 4 },
+          { label: "Corn", data: [2.5, 28.0], backgroundColor: GREY, borderRadius: 4 },
+        ],
+      },
+      options: {
+        indexAxis: "y", maintainAspectRatio: false, layout: { padding: { right: 30 } },
+        plugins: {
+          legend: { position: "top", align: "end", labels: { boxWidth: 14 } },
+          tooltip: { callbacks: { label: (c) => ` ${c.dataset.label}: ${c.parsed.x}% of all costs` } },
+        },
+        scales: { x: { beginAtZero: true, max: 35, title: { display: true, text: "Percent of all costs per acre (including land)" }, grid: { color: GRID } }, y: { grid: { display: false } } },
+      },
+    });
+  }
+
+  if ($("chart-ht")) {
+    const ht = [[1996, 7], [1997, 17], [2001, 68], [2008, 92], [2013, 93], [2014, 94], [2024, 96]];
+    new Chart($("chart-ht"), {
+      type: "line",
+      data: { datasets: [{ label: "Herbicide-tolerant soybeans", data: ht.map(([x, y]) => ({ x, y })), borderColor: GREEN, backgroundColor: "rgba(67, 112, 47, 0.12)", fill: true, borderWidth: 3, pointRadius: 4, tension: 0.2 }] },
+      options: {
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: { callbacks: { title: (i) => String(i[0].parsed.x), label: (c) => ` ${c.parsed.y}% of soybean acres` } } },
+        scales: {
+          x: { type: "linear", min: 1995, max: 2025, ticks: { stepSize: 5, callback: (v) => String(v) }, grid: { display: false } },
+          y: { beginAtZero: true, max: 100, title: { display: true, text: "Percent of planted acres" }, grid: { color: GRID } },
+        },
+      },
+    });
+  }
+
+  if ($("chart-organic")) {
+    const rows = [["Soybean sales that are organic (2021)", 0.41, GOLD], ["Soybean acres that are organic (2021/22 est.)", 0.29, GOLD], ["All U.S. farm sales that are organic (2021)", 3.0, GREY]];
+    new Chart($("chart-organic"), {
+      type: "bar",
+      data: { labels: rows.map((r) => r[0]), datasets: [{ data: rows.map((r) => r[1]), backgroundColor: rows.map((r) => r[2]), borderRadius: 4, barPercentage: 0.7 }] },
+      options: {
+        indexAxis: "y", maintainAspectRatio: false, layout: { padding: { right: 40 } },
+        plugins: { legend: { display: false }, valueLabels: { decimals: 2 }, tooltip: { callbacks: { label: (c) => ` ${c.parsed.x}% organic` } } },
+        scales: { x: { beginAtZero: true, max: 4, title: { display: true, text: "Percent organic" }, grid: { color: GRID } }, y: { grid: { display: false } } },
+      },
+      plugins: [valueLabels],
+    });
+  }
+
 })();
