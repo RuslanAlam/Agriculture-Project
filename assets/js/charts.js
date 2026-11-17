@@ -303,7 +303,7 @@
   /* ================= PART C =================
      farmdoc 2025 Crop Budgets, Table 2 (central IL, high productivity). USDA-ERS GE adoption. */
   if ($("chart-budget")) {
-    const parts = [["Land rent", 325, "#8a826d"], ["Machinery (power costs)", 159, "#3b6e8f"], ["Seed", 80, GOLD], ["Pesticides", 69, RUST], ["Fertilizers", 60, "#c77c3a"], ["Buildings, insurance, interest, misc.", 82, "#9fae94"], ["Hired labor", 24, GREEN], ["Storage & crop insurance", 16, "#c9c2b0"]];
+    const parts = [["Land rent", 321, "#8a826d"], ["Machinery (power costs)", 160, "#3b6e8f"], ["Seed", 83, GOLD], ["Pesticides", 70, RUST], ["Fertilizers", 66, "#c77c3a"], ["Buildings, insurance, interest, misc.", 88, "#9fae94"], ["Hired labor", 25, GREEN], ["Storage & crop insurance", 19, "#c9c2b0"]];
     new Chart($("chart-budget"), {
       type: "doughnut",
       data: { labels: parts.map((p) => p[0]), datasets: [{ data: parts.map((p) => p[1]), backgroundColor: parts.map((p) => p[2]), borderColor: "#fff", borderWidth: 2 }] },
@@ -311,7 +311,7 @@
         maintainAspectRatio: false, cutout: "50%",
         plugins: {
           legend: { position: window.innerWidth < 640 ? "bottom" : "right", labels: { boxWidth: 12, font: { size: 12 } } },
-          tooltip: { callbacks: { label: (c) => ` ${c.label}: $${c.parsed} per acre (${(100 * c.parsed / 815).toFixed(1)}%)` } },
+          tooltip: { callbacks: { label: (c) => ` ${c.label}: $${c.parsed} per acre (${(100 * c.parsed / 832).toFixed(1)}%)` } },
         },
       },
     });
@@ -323,8 +323,8 @@
       data: {
         labels: ["Labor intensity", "Chemical intensity"],
         datasets: [
-          { label: "Soybeans", data: [2.9, 15.8], backgroundColor: GOLD, borderRadius: 4 },
-          { label: "Corn", data: [2.5, 28.0], backgroundColor: GREY, borderRadius: 4 },
+          { label: "Soybeans", data: [3.0, 16.3], backgroundColor: GOLD, borderRadius: 4 },
+          { label: "Corn", data: [2.4, 29.9], backgroundColor: GREY, borderRadius: 4 },
         ],
       },
       options: {

@@ -67,43 +67,49 @@
   <section class="question" id="c2">
     <h2>2. Enterprise budget from a top state: Illinois</h2>
     <p class="prompt">Provide a link, a visual graphic, and a general description of the budget, including the estimated per-acre costs.</p>
-    <p>In <a href="part-b.html#b3">Part B</a>, Illinois was the #1 soybean state ($7.0 billion in 2024). So I used the <strong>2025 Crop Budgets</strong> from farmdoc, the farm-management program of the University of Illinois's Department of Agricultural and Consumer Economics, (revised May 2025), by Gary Schnitkey and Nick Paulson: <a href="https://farmdoc.illinois.edu/assets/management/crop-budgets/crop_budgets_2025_v3.pdf"><strong>farmdoc 2025 Crop Budgets (PDF)</strong></a>. The budgets are built from real farm records kept by the Illinois Farm Business Farm Management Association, which has more than 5,000 member farms. I used <strong>Table 2: central Illinois, high-productivity farmland, soybeans grown after corn</strong>, the most common setup.</p>
+    <p>In <a href="part-b.html#b3">Part B</a>, Illinois was the #1 soybean state ($7.0 billion in 2024). So I used the Illinois crop budgets from farmdoc, the farm-management program of the University of Illinois's Department of Agricultural and Consumer Economics, prepared by Gary Schnitkey and Nick Paulson: <a href="https://farmdoc.illinois.edu/assets/management/crop-budgets/crop_budgets_2026_May.pdf"><strong>farmdoc 2026 Crop Budgets (PDF)</strong></a>. They were first released in August 2025 and updated in January and May 2026, so they cover the 2026 growing season. The numbers come from real farm records kept by Illinois Farm Business Farm Management (FBFM), a group of more than 4,900 farmers. I used <strong>Table 2: central Illinois, high-productivity farmland, soybeans grown after corn</strong> (the corn–soybean rotation).</p>
 
     <figure>
-      <p class="chart-title">Where the money goes: costs per acre of Illinois soybeans, 2025</p>
-      <div class="chart-box" style="height: 380px;"><canvas id="chart-budget" aria-label="Doughnut chart of the per-acre costs of growing soybeans in central Illinois in 2025, by category" role="img"></canvas></div>
-      <figcaption>My chart from <a href="https://farmdoc.illinois.edu/assets/management/crop-budgets/crop_budgets_2025_v3.pdf">farmdoc 2025 Crop Budgets</a>, Table 2 (central Illinois, high-productivity farmland, soybeans after corn). Total = $815 per acre. Hover over a slice for the dollar amount.</figcaption>
+      <img src="assets/img/farmdoc-2026-table2.webp" alt="Screenshot of Table 2, 2026 Crop Budgets, Central Illinois, High Productivity Farmland. The Soybeans-after-Corn column is outlined: yield 76 bushels, price $11.50, gross revenue $899, total non-land costs $511, land costs $321, farmer return $67, break-even prices $6.72 and $10.95." loading="lazy" width="1250" height="1645" style="display:block; width:100%; max-width:620px; height:auto; margin:0 auto; border:1px solid #e3dccb; border-radius:6px;">
+      <figcaption>Screenshot of Table 2 from the budget (page 4). I outlined the <strong>Soybeans-after-Corn</strong> column, which is the one I use in questions 2, 3, and 4. Source: <a href="https://farmdoc.illinois.edu/assets/management/crop-budgets/crop_budgets_2026_May.pdf">farmdoc 2026 Crop Budgets</a>, revised May 2026.</figcaption>
+    </figure>
+
+    <figure>
+      <p class="chart-title">Where the money goes: costs per acre of Illinois soybeans, 2026</p>
+      <div class="chart-box" style="height: 380px;"><canvas id="chart-budget" aria-label="Doughnut chart of the per-acre costs of growing soybeans in central Illinois in 2026, by category" role="img"></canvas></div>
+      <figcaption>My chart from <a href="https://farmdoc.illinois.edu/assets/management/crop-budgets/crop_budgets_2026_May.pdf">farmdoc 2026 Crop Budgets</a>, Table 2 (central Illinois, high-productivity farmland, soybeans after corn). Total = $832 per acre. Hover over a slice for the dollar amount.</figcaption>
     </figure>
 
     <div class="table-scroll">
     <table>
       <thead><tr><th>Line in the budget (per acre)</th><th class="num">Amount</th></tr></thead>
       <tbody>
-        <tr><td>Yield × price</td><td class="num">75 bu × $10.25</td></tr>
-        <tr><th>Gross revenue (crop + $10 ARC/PLC payment)</th><th class="num">$779</th></tr>
-        <tr><td>Fertilizers</td><td class="num">$60</td></tr>
-        <tr><td>Pesticides</td><td class="num">$69</td></tr>
-        <tr><td>Seed</td><td class="num">$80</td></tr>
-        <tr><td>Storage ($8) + crop insurance ($8)</td><td class="num">$16</td></tr>
-        <tr><th>A. Total direct costs</th><th class="num">$225</th></tr>
-        <tr><td>Machine hire/lease ($22), utilities ($5), repair ($38), fuel and oil ($17), light vehicle ($2), machinery depreciation ($75)</td><td class="num">$159</td></tr>
-        <tr><th>B. Total power costs</th><th class="num">$159</th></tr>
-        <tr><td><strong>Hired labor</strong></td><td class="num"><strong>$24</strong></td></tr>
-        <tr><td>Building repair/rent ($10), building depreciation ($17), insurance ($15), misc. ($12), interest ($28)</td><td class="num">$82</td></tr>
-        <tr><th>C. Total overhead costs</th><th class="num">$106</th></tr>
-        <tr class="hl-row"><th>Total 1: non-land costs (A + B + C)</th><th class="num">$490</th></tr>
-        <tr><td>Land cost (cash rent)</td><td class="num">$325</td></tr>
-        <tr class="hl-row"><th>Total 2: all costs, including land</th><th class="num">$815</th></tr>
-        <tr><th>Farmer return (revenue − all costs)</th><th class="num">−$36</th></tr>
-        <tr><td>Break-even price: non-land costs / all costs</td><td class="num">$6.53 / $10.87 per bu</td></tr>
+        <tr><td>Yield × price</td><td class="num">76 bu × $11.50</td></tr>
+        <tr><th>Gross revenue (crop $874 + $25 ARC/PLC payment)</th><th class="num">$899</th></tr>
+        <tr><td>Fertilizers</td><td class="num">$66</td></tr>
+        <tr><td>Pesticides</td><td class="num">$70</td></tr>
+        <tr><td>Seed</td><td class="num">$83</td></tr>
+        <tr><td>Drying ($0), storage ($8), crop insurance ($11)</td><td class="num">$19</td></tr>
+        <tr><th>A. Total direct costs</th><th class="num">$238</th></tr>
+        <tr><td>Machine hire/lease ($19), utilities ($5), repair ($35), fuel and oil ($22), light vehicle ($2), machinery depreciation ($77)</td><td class="num">$160</td></tr>
+        <tr><th>B. Total power costs</th><th class="num">$160</th></tr>
+        <tr><td><strong>Hired labor</strong></td><td class="num"><strong>$25</strong></td></tr>
+        <tr><td>Building repair/rent ($12), building depreciation ($16), insurance ($15), misc. ($12), interest ($33)</td><td class="num">$88</td></tr>
+        <tr><th>C. Total overhead costs</th><th class="num">$113</th></tr>
+        <tr class="hl-row"><th>Total 1: non-land costs (A + B + C)</th><th class="num">$511</th></tr>
+        <tr><td>Land cost (cash rent)</td><td class="num">$321</td></tr>
+        <tr class="hl-row"><th>Total 2: all costs, including land ($511 + $321)</th><th class="num">$832</th></tr>
+        <tr><th>Farmer return (revenue − all costs)</th><th class="num">$67</th></tr>
+        <tr><td>Break-even price: non-land costs / all costs</td><td class="num">$6.72 / $10.95 per bu</td></tr>
       </tbody>
     </table>
     </div>
-    <p class="cite">Source: <a href="https://farmdoc.illinois.edu/assets/management/crop-budgets/crop_budgets_2025_v3.pdf">farmdoc 2025 Crop Budgets</a>, Table 2. The A + B + C groupings are farmdoc's own.</p>
+    <p class="cite">Source: <a href="https://farmdoc.illinois.edu/assets/management/crop-budgets/crop_budgets_2026_May.pdf">farmdoc 2026 Crop Budgets</a>, Table 2. The A + B + C groupings are farmdoc's own. farmdoc does not print Total 2, so I added non-land costs and land costs together.</p>
 
     <h3>What the budget says, in my own words</h3>
-    <p>The budget shows <strong>two totals</strong>, just as the assignment warned. <strong>Non-land costs are $490 per acre</strong>: everything a farmer pays to grow the crop, including machinery depreciation (the yearly wear-and-tear cost of tractors and combines). The <strong>grand total is $815 per acre</strong> once you add $325 for land rent. I use both totals in questions 3 and 4.</p>
-    <p>The biggest single cost is <span class="hl">land, at 40% of the total</span>, followed by machinery ($159) and seed ($80). At $10.25 per bushel, the farmer covers the non-land costs easily (break-even $6.53) but <strong>loses $36 per acre</strong> after paying rent (break-even $10.87). So in 2025, renting land to grow soybeans in Illinois was expected to lose money. That helps explain why government payments matter so much to soybean farmers (<a href="part-d.html#d1">Part D</a>).</p>
+    <p>The budget shows <strong>two totals</strong>, just as the assignment warned. <strong>Non-land costs are $511 per acre</strong>: everything a farmer pays to grow the crop, including machinery depreciation (the yearly wear-and-tear cost of tractors and combines). The <strong>grand total is $832 per acre</strong> once you add $321 for land rent. I use both totals in questions 3 and 4.</p>
+    <p>The biggest single cost is <span class="hl">land, at 39% of the total</span>, followed by machinery ($160) and seed ($83). At the budget's price of $11.50 per bushel, the farmer covers the non-land costs easily (break-even $6.72) and <strong>earns about $67 per acre</strong> after paying rent (break-even $10.95). That margin is thin, though. If the price fell by just 55 cents, to $10.95, crop sales would only just cover all costs, and $25 of the farmer's revenue is a government ARC/PLC payment. Corn in the same table is expected to lose $44 per acre, so in this budget soybeans are the more profitable crop.</p>
+    <p>Margins also swing a lot from year to year. In farmdoc's 2025 budget, the same farm was expected to <strong>lose $36 per acre</strong> because the soybean price was only $10.25 (<a href="https://farmdoc.illinois.edu/assets/management/crop-budgets/crop_budgets_2025_v3.pdf">farmdoc 2025 Crop Budgets</a>, Table 2). Swings like that help explain why government payments matter so much to soybean farmers (<a href="part-d.html#d1">Part D</a>).</p>
   </section>
 
   <!-- ===================== C3 ===================== -->
@@ -112,8 +118,8 @@
     <p class="prompt">Use the figures from the budget, calculate a labor intensity percentage (labor costs ÷ total production costs), and explain any assumptions.</p>
 
     <div class="stats">
-      <div class="stat"><span class="big">2.9%</span><span class="small">labor intensity, using all costs ($24 ÷ $815)</span></div>
-      <div class="stat"><span class="big">4.9%</span><span class="small">labor intensity, using non-land costs ($24 ÷ $490)</span></div>
+      <div class="stat"><span class="big">3.0%</span><span class="small">labor intensity, using all costs ($25 ÷ $832)</span></div>
+      <div class="stat"><span class="big">4.9%</span><span class="small">labor intensity, using non-land costs ($25 ÷ $511)</span></div>
       <div class="stat"><span class="big">~34%</span><span class="small">for fresh tomatoes, for comparison (professor's sample)</span></div>
     </div>
 
@@ -122,14 +128,14 @@
     <table>
       <thead><tr><th>Version</th><th>Labor cost</th><th>Divided by</th><th class="num">Labor intensity</th></tr></thead>
       <tbody>
-        <tr><td><strong>Main answer</strong>: hired labor only</td><td>$24 (budget line "Hired labor")</td><td>$815 all costs</td><td class="num"><strong>2.9%</strong></td></tr>
-        <tr><td>Same, without land</td><td>$24</td><td>$490 non-land costs</td><td class="num"><strong>4.9%</strong></td></tr>
-        <tr><td>Upper bound: hired labor + machine hire/lease</td><td>$24 + $22 = $46</td><td>$815 / $490</td><td class="num">5.6% / 9.4%</td></tr>
+        <tr><td><strong>Main answer</strong>: hired labor only</td><td>$25 (budget line "Hired labor")</td><td>$832 all costs</td><td class="num"><strong>3.0%</strong></td></tr>
+        <tr><td>Same, without land</td><td>$25</td><td>$511 non-land costs</td><td class="num"><strong>4.9%</strong></td></tr>
+        <tr><td>Upper bound: hired labor + machine hire/lease</td><td>$25 + $19 = $44</td><td>$832 / $511</td><td class="num">5.3% / 8.6%</td></tr>
         <tr><td>Check with national USDA data (2024): hired labor $6.37 + value of the farmer's own unpaid labor $22.00</td><td>$28.37</td><td>$632.11 total cost per planted acre</td><td class="num">4.5%</td></tr>
       </tbody>
     </table>
     </div>
-    <p class="cite">Sources: <a href="https://farmdoc.illinois.edu/assets/management/crop-budgets/crop_budgets_2025_v3.pdf">farmdoc 2025 Crop Budgets</a>, Table 2; USDA-ERS <a href="https://www.ers.usda.gov/data-products/commodity-costs-and-returns">Commodity Costs and Returns</a>, U.S. soybeans 2024, as republished by the American Soybean Association's <a href="https://soystats.com/production-costs-returns/">SoyStats</a>.</p>
+    <p class="cite">Sources: <a href="https://farmdoc.illinois.edu/assets/management/crop-budgets/crop_budgets_2026_May.pdf">farmdoc 2026 Crop Budgets</a>, Table 2; USDA-ERS <a href="https://www.ers.usda.gov/data-products/commodity-costs-and-returns">Commodity Costs and Returns</a>, U.S. soybeans 2024, as republished by the American Soybean Association's <a href="https://soystats.com/production-costs-returns/">SoyStats</a>.</p>
 
     <h3>Assumptions I made</h3>
     <ul>
@@ -138,7 +144,7 @@
     </ul>
 
     <h3>Analysis</h3>
-    <p>However you measure it, soybeans are <span class="hl">not labor intensive</span>: labor is somewhere between 3% and 9% of costs, compared with about 34% for fresh tomatoes in my professor's sample. The money goes to <strong>machines instead of people</strong>. In the Illinois budget, machinery costs ($159) are almost <strong>seven times</strong> hired labor ($24). This helps explain how a small number of people can farm large areas of soybeans, and why soybeans do not depend on farmworkers the way fruit and vegetable crops do.</p>
+    <p>However you measure it, soybeans are <span class="hl">not labor intensive</span>: labor is somewhere between 3% and 9% of costs, compared with about 34% for fresh tomatoes in my professor's sample. The money goes to <strong>machines instead of people</strong>. In the Illinois budget, machinery costs ($160) are more than <strong>six times</strong> hired labor ($25). This helps explain how a small number of people can farm large areas of soybeans, and why soybeans do not depend on farmworkers the way fruit and vegetable crops do.</p>
 
       <figure class="web-photo" style="max-width:100%;">
       <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Case_IH_combine_harvesting_soybeans.jpg?width=900" alt="A combine harvester harvesting a soybean field" loading="lazy" style="display:block; width:100%; border-radius:6px;" onerror="this.closest('figure').remove()">
@@ -153,27 +159,27 @@
 
     <div class="table-scroll">
     <table>
-      <thead><tr><th>Chemical cost (per acre)</th><th class="num">Amount</th><th class="num">% of all costs ($815)</th><th class="num">% of non-land costs ($490)</th></tr></thead>
+      <thead><tr><th>Chemical cost (per acre)</th><th class="num">Amount</th><th class="num">% of all costs ($832)</th><th class="num">% of non-land costs ($511)</th></tr></thead>
       <tbody>
-        <tr><td>Fertilizers</td><td class="num">$60</td><td class="num">7.4%</td><td class="num">12.2%</td></tr>
-        <tr><td>Pesticides (herbicides, insecticides, fungicides)</td><td class="num">$69</td><td class="num">8.5%</td><td class="num">14.1%</td></tr>
-        <tr><th>Total chemicals</th><th class="num">$129</th><th class="num">15.8%</th><th class="num">26.3%</th></tr>
+        <tr><td>Fertilizers</td><td class="num">$66</td><td class="num">7.9%</td><td class="num">12.9%</td></tr>
+        <tr><td>Pesticides (herbicides, insecticides, fungicides)</td><td class="num">$70</td><td class="num">8.4%</td><td class="num">13.7%</td></tr>
+        <tr><th>Total chemicals</th><th class="num">$136</th><th class="num">16.3%</th><th class="num">26.6%</th></tr>
       </tbody>
     </table>
     </div>
-    <p class="cite">Source: <a href="https://farmdoc.illinois.edu/assets/management/crop-budgets/crop_budgets_2025_v3.pdf">farmdoc 2025 Crop Budgets</a>, Table 2; percentages are my own calculations.</p>
+    <p class="cite">Source: <a href="https://farmdoc.illinois.edu/assets/management/crop-budgets/crop_budgets_2026_May.pdf">farmdoc 2026 Crop Budgets</a>, Table 2; percentages are my own calculations.</p>
 
     <figure>
       <p class="chart-title">Labor and chemical intensity: soybeans vs. corn (same Illinois budget)</p>
-      <div class="chart-box" style="height: 300px;"><canvas id="chart-intensity" aria-label="Bar chart comparing labor and chemical intensity of soybeans and corn in the 2025 central Illinois budget" role="img"></canvas></div>
-      <figcaption>My chart. Corn after soybeans: fertilizer $190 + pesticides $116 = $306 and hired labor $27, out of $1,093 in all costs ($768 non-land + $325 land). Soybeans after corn: $129 and $24 out of $815. Source: <a href="https://farmdoc.illinois.edu/assets/management/crop-budgets/crop_budgets_2025_v3.pdf">farmdoc 2025 Crop Budgets</a>, Table 2.</figcaption>
+      <div class="chart-box" style="height: 300px;"><canvas id="chart-intensity" aria-label="Bar chart comparing labor and chemical intensity of soybeans and corn in the 2026 central Illinois budget" role="img"></canvas></div>
+      <figcaption>My chart. Corn after soybeans: fertilizer $229 + pesticides $116 = $345 and hired labor $28, out of $1,154 in all costs ($833 non-land + $321 land). Soybeans after corn: $136 and $25 out of $832. Source: <a href="https://farmdoc.illinois.edu/assets/management/crop-budgets/crop_budgets_2026_May.pdf">farmdoc 2026 Crop Budgets</a>, Table 2.</figcaption>
     </figure>
 
     <h3>Analysis</h3>
-    <p>Chemicals are about <span class="hl">16% of all costs (26% of non-land costs)</span>, so soybeans are <strong>moderately</strong> chemical intensive. Two things stand out to me:</p>
+    <p>Chemicals are about <span class="hl">16% of all costs (27% of non-land costs)</span>, so soybeans are <strong>moderately</strong> chemical intensive. Two things stand out to me:</p>
     <ul>
-      <li><strong>Pesticides cost more than fertilizer.</strong> Most of that is herbicide, because weeds are the main threat to soybean yields.</li>
-      <li><strong>Soybeans use far fewer chemicals than corn.</strong> In the same budget, corn spends $306 per acre on chemicals, 28% of its costs, mostly nitrogen fertilizer. Soybeans make their own nitrogen, so their fertilizer bill is less than a third of corn's. This is a big reason farmers rotate the two crops.</li>
+      <li><strong>Pesticides cost a bit more than fertilizer.</strong> Weeds are the main threat to soybean yields, so herbicides are the main pesticide. USDA found herbicides were sprayed on <strong>96%</strong> of U.S. soybean acres in 2023 (<a href="https://www.nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Chemical_Use/2023_Barley_Oats_Peanuts_Soybeans/ChemHighlights-Soybeans-2023.pdf">USDA-NASS Chemical Use Survey</a>).</li>
+      <li><strong>Soybeans use far fewer chemicals than corn.</strong> In the same budget, corn spends $345 per acre on chemicals, 30% of its costs, mostly fertilizer. Soybeans make their own nitrogen, so their fertilizer bill is less than a third of corn's. This is a big reason farmers rotate the two crops.</li>
     </ul>
   </section>
 
@@ -182,7 +188,7 @@
     <h2>5. A dangerous chemical used on soybeans: paraquat</h2>
     <p class="prompt">Is any chemical used in production extremely toxic or dangerous to society or the environment? Pick one of the most toxic and describe it in detail.</p>
 
-    <p>The farmdoc budget lists pesticides only as one dollar amount ($69 per acre), but Penn State Extension's soybean weed articles do name products. For killing weeds before planting, Penn State mentions <strong>glyphosate</strong> (Roundup) and <strong>Gramoxone</strong>, a brand of <strong>paraquat</strong> (<a href="https://extension.psu.edu/double-crop-soybeans-weed-management-considerations">Penn State Extension – Double-Crop Soybeans: Weed Management</a>). Beyond Pesticides' <a href="https://www.beyondpesticides.org/resources/eating-with-a-conscience/choose-a-crop">Eating with a Conscience</a> database counts <strong>83 pesticides</strong> with EPA tolerances on soybeans, <strong>38 of them acutely toxic</strong>, although not every one is used on every field (<a href="https://beyondpesticides.org/assets/media/documents/BP%20comments%20on%20tocopherols.final.pdf">Beyond Pesticides, citing its database</a>). Beyond Pesticides is an advocacy group, so I used government and university sources for the details below. I compared three common soybean herbicides and picked <strong>paraquat</strong> because it is by far the most acutely toxic.</p>
+    <p>The farmdoc budget lists pesticides only as one dollar amount ($70 per acre), but Penn State Extension's soybean weed articles do name products. For killing weeds before planting, Penn State mentions <strong>glyphosate</strong> (Roundup) and <strong>Gramoxone</strong>, a brand of <strong>paraquat</strong> (<a href="https://extension.psu.edu/double-crop-soybeans-weed-management-considerations">Penn State Extension – Double-Crop Soybeans: Weed Management</a>). Beyond Pesticides' <a href="https://www.beyondpesticides.org/resources/eating-with-a-conscience/choose-a-crop">Eating with a Conscience</a> database counts <strong>83 pesticides</strong> with EPA tolerances on soybeans, <strong>38 of them acutely toxic</strong>, although not every one is used on every field (<a href="https://beyondpesticides.org/assets/media/documents/BP%20comments%20on%20tocopherols.final.pdf">Beyond Pesticides, citing its database</a>). Beyond Pesticides is an advocacy group, so I used government and university sources for the details below. I compared three common soybean herbicides and picked <strong>paraquat</strong> because it is by far the most acutely toxic.</p>
 
     <div class="table-scroll">
     <table>
