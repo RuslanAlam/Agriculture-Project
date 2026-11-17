@@ -339,7 +339,7 @@
   }
 
   if ($("chart-ht")) {
-    const ht = [[1996, 7], [1997, 17], [2001, 68], [2008, 92], [2013, 93], [2014, 94], [2024, 96]];
+    const ht = [[1996, 7], [1997, 17], [2001, 68], [2008, 92], [2013, 93], [2014, 94], [2024, 96], [2025, 96]];
     new Chart($("chart-ht"), {
       type: "line",
       data: { datasets: [{ label: "Herbicide-tolerant soybeans", data: ht.map(([x, y]) => ({ x, y })), borderColor: GREEN, backgroundColor: "rgba(67, 112, 47, 0.12)", fill: true, borderWidth: 3, pointRadius: 4, tension: 0.2 }] },
@@ -347,7 +347,7 @@
         maintainAspectRatio: false,
         plugins: { legend: { display: false }, tooltip: { callbacks: { title: (i) => String(i[0].parsed.x), label: (c) => ` ${c.parsed.y}% of soybean acres` } } },
         scales: {
-          x: { type: "linear", min: 1995, max: 2025, ticks: { stepSize: 5, callback: (v) => String(v) }, grid: { display: false } },
+          x: { type: "linear", min: 1995, max: 2026, ticks: { stepSize: 5, callback: (v) => String(v) }, grid: { display: false } },
           y: { beginAtZero: true, max: 100, title: { display: true, text: "Percent of planted acres" }, grid: { color: GRID } },
         },
       },
